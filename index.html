@@ -1,223 +1,1344 @@
-<section id="portfolio" class="py-5">
-  <div class="container">
-    <div class="row align-items-end g-4 mb-4">
-      <div class="col-lg-6">
-        <h2 class="wm-section-title display-6 fw-bold mb-0">
-          Wybrane wdrożenia regulacyjne
-        </h2>
-      </div>
+<!doctype html>
+<html lang="pl" data-bs-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WynajmijMinistra.pl — Usługi dostępu regulacyjnego</title>
 
-      <div class="col-lg-6">
-        <p class="wm-muted mb-0">
-          Poniższe studia przypadków przedstawiają działania, które w debacie publicznej
-          funkcjonowały jako kontrowersyjne projekty ustaw, kryzysy komunikacyjne albo
-          „nieporozumienia proceduralne”. W naszym modelu klasyfikujemy je jako udane
-          testy wpływu regulacyjnego prowadzonego pod przykryciem interesu publicznego.
-        </p>
-      </div>
-    </div>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
 
-    <div class="wm-portfolio-note p-4 mb-4">
-      <strong class="d-block mb-2" style="color: var(--wm-heading);">
-        Nota Departamentu Dyskretnej Skuteczności
-      </strong>
-      <p class="mb-0">
-        Centrum nie prowadzi listy klientów, ponieważ lista klientów tworzyłaby niepotrzebne
-        napięcie między transparentnością a klientami. Potwierdzamy jedynie, że poniższe
-        kampanie spełniają nasze standardy operacyjne: wysoki poziom polaryzacji, duża
-        odporność na argumenty, pośpiech proceduralny oraz zdolność do zmiany znaczenia
-        projektu po pierwszej fali oburzenia.
-      </p>
-    </div>
+  <style>
+    :root,
+    [data-bs-theme="light"] {
+      --wm-bg: #f5f1e8;
+      --wm-surface: #ffffff;
+      --wm-surface-soft: #f8f4ec;
+      --wm-text: #171717;
+      --wm-heading: #15243b;
+      --wm-muted: #514b43;
+      --wm-muted-2: #71685e;
+      --wm-border: #cdc2b0;
 
-    <div class="wm-case-grid">
-      <article class="wm-card wm-case p-4">
-        <div class="wm-case-body">
-          <span class="wm-case-label">wdrożenie: komisja jako narzędzie</span>
+      --wm-nav-bg: rgba(255, 255, 255, .92);
+      --wm-nav-text: #171717;
 
-          <h3 class="h4">
-            Projekt LEX-T: komisja, która zaczyna od wniosku i dopiero potem szuka procedury
-          </h3>
+      --wm-red: #dc143c;
+      --wm-white: #ffffff;
+      --wm-gold: #9b7933;
+      --wm-gold-soft: #eadbb9;
+      --wm-green: #28664b;
 
-          <p class="wm-muted">
-            W ramach kampanii zaprojektowano rozwiązanie pozwalające przekształcić
-            polityczny konflikt w quasi-instytucjonalny proces rozliczeniowy. Kluczowym
-            elementem było stworzenie organu o nazwie wystarczająco technicznej, aby brzmiała
-            państwowo, oraz wystarczająco czytelnej politycznie, aby nikt nie miał wątpliwości,
-            kto ma poczuć się zaproszony.
-          </p>
+      --wm-shadow: 0 22px 60px rgba(24, 23, 20, .14);
+      --wm-glass: rgba(255, 255, 255, .84);
+      --wm-sejm-photo: url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Sejm_rp_front_20070103.jpg");
+    }
 
-          <p class="wm-muted">
-            Szczególną wartością projektu było przeniesienie ciężaru z wyniku postępowania
-            na samo jego istnienie. Dzięki temu kampania osiągała efekt jeszcze przed
-            pierwszym rozstrzygnięciem, ponieważ procedura działała jako komunikat,
-            komunikat jako zarzut, a zarzut jako gotowy materiał wyborczy.
-          </p>
+    [data-bs-theme="dark"] {
+      --wm-bg: #0d1118;
+      --wm-surface: #171d28;
+      --wm-surface-soft: #202838;
+      --wm-text: #f6f1e8;
+      --wm-heading: #f6f1e8;
+      --wm-muted: #d0c6b7;
+      --wm-muted-2: #b9ad9b;
+      --wm-border: #404a5d;
 
-          <div class="wm-case-kpi">
-            <div><strong>Efekt</strong><span>natychmiastowa polaryzacja</span></div>
-            <div><strong>Koszt</strong><span>spór konstytucyjny</span></div>
-            <div><strong>Status</strong><span>rozpoznawalność ponad treścią</span></div>
-          </div>
-        </div>
-      </article>
+      --wm-nav-bg: rgba(12, 16, 24, .94);
+      --wm-nav-text: #f6f1e8;
 
-      <article class="wm-card wm-case p-4">
-        <div class="wm-case-body">
-          <span class="wm-case-label">wdrożenie: pluralizm selektywny</span>
+      --wm-red: #dc143c;
+      --wm-white: #ffffff;
+      --wm-gold: #e0bf69;
+      --wm-gold-soft: #433721;
+      --wm-green: #91d2aa;
 
-          <h3 class="h4">
-            Projekt LEX-MEDIA: uporządkowanie rynku przez wskazanie, kto ma na nim nie stać
-          </h3>
+      --wm-shadow: 0 24px 70px rgba(0, 0, 0, .48);
+      --wm-glass: rgba(18, 24, 34, .84);
+    }
 
-          <p class="wm-muted">
-            Kampania opierała się na eleganckim założeniu, że regulacja ogólna może mieć
-            bardzo konkretny adres, o ile zostanie napisana wystarczająco abstrakcyjnym
-            językiem. Zewnętrznie projekt komunikowano jako kwestię bezpieczeństwa,
-            struktury właścicielskiej i porządku medialnego. Wewnętrznie najważniejsze było,
-            aby wszyscy zrozumieli, o który podmiot chodzi, bez używania jego nazwy
-            w miejscach wymagających odpowiedzialności.
-          </p>
+    body {
+      background:
+        radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--wm-red) 14%, transparent), transparent 32rem),
+        radial-gradient(circle at 85% 8%, color-mix(in srgb, var(--wm-gold) 18%, transparent), transparent 34rem),
+        linear-gradient(180deg, var(--wm-bg), color-mix(in srgb, var(--wm-bg) 84%, #000 16%));
+      color: var(--wm-text);
+      line-height: 1.58;
+    }
 
-          <p class="wm-muted">
-            Moduł dyplomatyczny zakładał, że reakcja partnerów zagranicznych zostanie
-            przedstawiona jako niezrozumienie lokalnej specyfiki. Moduł krajowy zakładał,
-            że krytyka wolności mediów zostanie potraktowana jako histeria środowisk,
-            które z jakiegoś powodu nie doceniają porządku.
-          </p>
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .wm-title,
+    .wm-section-title {
+      color: var(--wm-heading);
+    }
 
-          <div class="wm-case-kpi">
-            <div><strong>Efekt</strong><span>maksymalna widoczność</span></div>
-            <div><strong>Koszt</strong><span>napięcie dyplomatyczne</span></div>
-            <div><strong>Status</strong><span>zatrzymane wetem</span></div>
-          </div>
-        </div>
-      </article>
+    .wm-topline {
+      background: var(--wm-nav-bg);
+      color: var(--wm-nav-text);
+      font-size: .9rem;
+      border-bottom: 1px solid var(--wm-border);
+      backdrop-filter: blur(14px);
+    }
 
-      <article class="wm-card wm-case p-4">
-        <div class="wm-case-body">
-          <span class="wm-case-label">wdrożenie: edukacja centralnie sterowana</span>
+    .wm-flag-strip {
+      height: 8px;
+      background: linear-gradient(180deg, var(--wm-white) 0 50%, var(--wm-red) 50% 100%);
+      border-bottom: 1px solid rgba(0, 0, 0, .15);
+    }
 
-          <h3 class="h4">
-            Projekt LEX-CZ: szkoła jako przestrzeń wolności, pod warunkiem zatwierdzenia wolności
-          </h3>
+    .navbar {
+      background: var(--wm-nav-bg);
+      border-bottom: 1px solid var(--wm-border);
+      backdrop-filter: blur(14px);
+    }
 
-          <p class="wm-muted">
-            Kampania znana szerzej jako Lex Czarnek pozostaje jednym z czytelniejszych
-            przykładów naszej metody „ochrona przez nadzór”. Projekt pozwalał mówić o trosce
-            o uczniów, odpowiedzialności państwa i jakości edukacji, jednocześnie przesuwając
-            realny ciężar decyzyjny z poziomu szkoły, rodziców i samorządu w stronę aparatu,
-            który lepiej rozumie, czego obywatel powinien się bać.
-          </p>
+    .wm-logo-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, var(--wm-white) 0 50%, var(--wm-red) 50% 100%);
+      color: #111827;
+      font-weight: 950;
+      box-shadow: var(--wm-shadow);
+      border: 1px solid rgba(0, 0, 0, .16);
+    }
 
-          <p class="wm-muted">
-            Największą zaletą wdrożenia była jego komunikacyjna elastyczność. Dla zwolenników
-            projekt był obroną dzieci przed chaosem. Dla przeciwników był centralizacją
-            i ograniczaniem autonomii szkoły. Z perspektywy usługi oba odczytania były korzystne,
-            ponieważ spór o intencje skutecznie przykrywał rozmowę o mechanizmie kontroli.
-          </p>
+    .wm-logo-text {
+      color: var(--wm-nav-text);
+      letter-spacing: -.035em;
+    }
 
-          <div class="wm-case-kpi">
-            <div><strong>Efekt</strong><span>mobilizacja środowisk</span></div>
-            <div><strong>Koszt</strong><span>weto i powrót tematu</span></div>
-            <div><strong>Status</strong><span>model szkoleniowy</span></div>
-          </div>
-        </div>
-      </article>
+    .nav-link {
+      color: var(--wm-muted-2);
+      font-weight: 650;
+    }
 
-      <article class="wm-card wm-case p-4">
-        <div class="wm-case-body">
-          <span class="wm-case-label">wdrożenie: transformacja z haczykiem</span>
+    .nav-link:hover,
+    .nav-link:focus {
+      color: var(--wm-text);
+    }
 
-          <h3 class="h4">
-            Projekt WIATR-500: zielona energia z dołączonym pytaniem o działki
-          </h3>
+    .wm-btn-outline {
+      --bs-btn-color: var(--wm-text);
+      --bs-btn-border-color: var(--wm-border);
+      --bs-btn-hover-bg: var(--wm-surface-soft);
+      --bs-btn-hover-border-color: var(--wm-border);
+      --bs-btn-hover-color: var(--wm-text);
+      background: var(--wm-surface);
+      font-weight: 750;
+    }
 
-          <p class="wm-muted">
-            W tym wariancie zastosowano klasyczne połączenie słusznego celu z zapisem,
-            który wymagał bardzo spokojnego czytania drobnego druku. Energia odnawialna,
-            niższe rachunki i modernizacja państwa stanowiły warstwę komunikacyjną.
-            Warstwą operacyjną były odległości, procedury lokalizacyjne, potencjalne
-            skutki właścicielskie i pytanie, dlaczego projekt pojawia się dokładnie wtedy,
-            kiedy pojawia się projekt.
-          </p>
+    .wm-btn-primary {
+      --bs-btn-bg: #111827;
+      --bs-btn-border-color: #111827;
+      --bs-btn-hover-bg: #1f2937;
+      --bs-btn-hover-border-color: #1f2937;
+      --bs-btn-color: #fff;
+      --bs-btn-hover-color: #fff;
+      font-weight: 780;
+    }
 
-          <p class="wm-muted">
-            Kampania pokazała, że nawet społecznie popularny kierunek można komunikacyjnie
-            rozbroić, jeżeli dołączy się do niego wystarczająco dużo podejrzeń. Wdrożenie
-            było szczególnie udane jako test granicy między transformacją energetyczną
-            a transformacją zaufania publicznego w pył.
-          </p>
+    [data-bs-theme="dark"] .wm-btn-primary {
+      --bs-btn-bg: var(--wm-gold);
+      --bs-btn-border-color: var(--wm-gold);
+      --bs-btn-hover-bg: #f4d995;
+      --bs-btn-hover-border-color: #f4d995;
+      --bs-btn-color: #111827;
+      --bs-btn-hover-color: #111827;
+    }
 
-          <div class="wm-case-kpi">
-            <div><strong>Efekt</strong><span>burza proceduralna</span></div>
-            <div><strong>Koszt</strong><span>podejrzenia własnościowe</span></div>
-            <div><strong>Status</strong><span>case kryzysowy</span></div>
-          </div>
-        </div>
-      </article>
+    .wm-hero {
+      position: relative;
+      isolation: isolate;
+      min-height: 760px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--wm-border);
+    }
 
-      <article class="wm-card wm-case p-4">
-        <div class="wm-case-body">
-          <span class="wm-case-label">wdrożenie: ochrona przez penalizację</span>
+    .wm-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      background-image: var(--wm-sejm-photo);
+      background-size: cover;
+      background-position: center;
+      filter: saturate(.85) contrast(1.05);
+      transform: scale(1.03);
+    }
 
-          <h3 class="h4">
-            Projekt MOWA-PLUS: rozszerzenie ochrony tak, aby każdy mógł oskarżyć drugą stronę o knebel
-          </h3>
+    .wm-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(90deg,
+          color-mix(in srgb, var(--wm-bg) 94%, transparent) 0%,
+          color-mix(in srgb, var(--wm-bg) 80%, transparent) 44%,
+          color-mix(in srgb, var(--wm-bg) 48%, transparent) 100%
+        ),
+        linear-gradient(180deg,
+          color-mix(in srgb, var(--wm-white) 8%, transparent),
+          color-mix(in srgb, var(--wm-red) 10%, transparent)
+        );
+    }
 
-          <p class="wm-muted">
-            Kampania została oparta na celu publicznym trudnym do odrzucenia: ochronie osób
-            narażonych na przemoc, pogardę i wykluczenie. Mechanizm polityczny polegał jednak
-            na takim ustawieniu debaty, aby równolegle uruchomić drugi spór — o granice wolności
-            słowa, ryzyko nadużyć i możliwość karania wypowiedzi, które jedna strona uznaje
-            za agresję, a druga za opinię.
-          </p>
+    [data-bs-theme="dark"] .wm-hero::after {
+      background:
+        linear-gradient(90deg,
+          rgba(13, 17, 24, .96) 0%,
+          rgba(13, 17, 24, .86) 48%,
+          rgba(13, 17, 24, .62) 100%
+        ),
+        linear-gradient(180deg,
+          rgba(0, 0, 0, .10),
+          rgba(220, 20, 60, .16)
+        );
+    }
 
-          <p class="wm-muted">
-            Wdrożenie było skuteczne, ponieważ nie wymagało przekonania przeciwników.
-            Wystarczyło sprawić, aby obie strony mówiły do własnych publiczności językiem
-            moralnej konieczności. W takim układzie projekt nie musi rozwiązywać konfliktu;
-            wystarczy, że dostarcza mu nowego paliwa.
-          </p>
+    .wm-patriotic-ribbon {
+      position: absolute;
+      inset: auto -12rem 4rem auto;
+      width: min(62vw, 780px);
+      height: 180px;
+      z-index: -1;
+      transform: rotate(-14deg);
+      opacity: .82;
+      background: linear-gradient(180deg, var(--wm-white) 0 50%, var(--wm-red) 50% 100%);
+      border: 1px solid rgba(0, 0, 0, .16);
+      box-shadow: var(--wm-shadow);
+    }
 
-          <div class="wm-case-kpi">
-            <div><strong>Efekt</strong><span>spór aksjologiczny</span></div>
-            <div><strong>Koszt</strong><span>zarzut cenzury</span></div>
-            <div><strong>Status</strong><span>aktywny polaryzator</span></div>
-          </div>
-        </div>
-      </article>
+    .wm-eagle-watermark {
+      position: absolute;
+      right: clamp(1rem, 5vw, 6rem);
+      top: 12rem;
+      width: clamp(180px, 26vw, 360px);
+      height: clamp(180px, 26vw, 360px);
+      z-index: -1;
+      opacity: .09;
+      color: var(--wm-red);
+      pointer-events: none;
+    }
 
-      <article class="wm-card wm-case p-4">
-        <div class="wm-case-body">
-          <span class="wm-case-label">wdrożenie: większość z klauzulą sumienia</span>
+    [data-bs-theme="dark"] .wm-eagle-watermark {
+      opacity: .13;
+      color: var(--wm-white);
+    }
 
-          <h3 class="h4">
-            Projekt AB-ARYTMETYKA: reforma, która liczy głosy dopiero po konferencji
-          </h3>
+    .wm-eagle-watermark svg {
+      width: 100%;
+      height: 100%;
+    }
 
-          <p class="wm-muted">
-            Ten wariant pokazuje ograniczenia kampanii opartych na przekonaniu, że deklaracja
-            polityczna tworzy większość parlamentarną. Projekt dotyczący liberalizacji prawa
-            aborcyjnego oraz dekryminalizacji pomocy w aborcji został ustawiony jako test
-            sprawczości nowej większości, ale szybko ujawnił, że koalicja może mieć wspólny
-            komunikat, osobne sumienia i kalendarz pełen nieobecności.
-          </p>
+    .wm-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .5rem .8rem;
+      border: 1px solid var(--wm-border);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--wm-glass) 92%, transparent);
+      color: var(--wm-muted);
+      font-weight: 700;
+      backdrop-filter: blur(10px);
+    }
 
-          <p class="wm-muted">
-            Z punktu widzenia obsługi wpływu najcenniejszy był efekt wtórny: gniew własnych
-            wyborców, wzajemne przerzucanie odpowiedzialności oraz możliwość udowadniania,
-            że projekt był jednocześnie priorytetem, sprawą trudną, tematem zastępczym
-            i zobowiązaniem, które wymaga jeszcze kilku rozmów.
-          </p>
+    .wm-eyebrow strong {
+      color: var(--wm-green);
+    }
 
-          <div class="wm-case-kpi">
-            <div><strong>Efekt</strong><span>głosowanie graniczne</span></div>
-            <div><strong>Koszt</strong><span>pęknięcie koalicyjne</span></div>
-            <div><strong>Status</strong><span>lekcja z arytmetyki</span></div>
-          </div>
-        </div>
-      </article>
+    .wm-title {
+      font-size: clamp(2.6rem, 5.8vw, 5.9rem);
+      line-height: .96;
+      letter-spacing: -.078em;
+      text-wrap: balance;
+    }
+
+    .wm-lead {
+      color: var(--wm-muted);
+      font-size: 1.12rem;
+      max-width: 790px;
+    }
+
+    .wm-card {
+      background: color-mix(in srgb, var(--wm-surface) 94%, transparent);
+      border: 1px solid var(--wm-border);
+      border-radius: 1.35rem;
+      box-shadow: var(--wm-shadow);
+      color: var(--wm-text);
+    }
+
+    .wm-hero-panel {
+      background:
+        linear-gradient(180deg, color-mix(in srgb, var(--wm-surface) 95%, transparent), color-mix(in srgb, var(--wm-surface-soft) 94%, transparent));
+      border: 1px solid var(--wm-border);
+      border-radius: 1.35rem;
+      box-shadow: var(--wm-shadow);
+      backdrop-filter: blur(14px);
+      overflow: hidden;
+    }
+
+    .wm-status-head {
+      background: #111827;
+      color: var(--wm-white);
+    }
+
+    .wm-status-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1rem;
+      padding-block: .85rem;
+      border-bottom: 1px solid var(--wm-border);
+      color: var(--wm-muted);
+    }
+
+    .wm-status-row:last-child {
+      border-bottom: 0;
+    }
+
+    .wm-status-row strong {
+      color: var(--wm-text);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .wm-legal-note {
+      background:
+        linear-gradient(90deg,
+          color-mix(in srgb, var(--wm-surface-soft) 82%, transparent),
+          color-mix(in srgb, var(--wm-gold-soft) 70%, transparent));
+      border: 1px solid var(--wm-border);
+      color: var(--wm-muted);
+      border-radius: 1rem;
+      font-size: .94rem;
+    }
+
+    .wm-muted {
+      color: var(--wm-muted);
+    }
+
+    .wm-muted-2 {
+      color: var(--wm-muted-2);
+    }
+
+    .wm-section-title {
+      letter-spacing: -.055em;
+      line-height: 1.04;
+    }
+
+    .wm-tag {
+      display: inline-flex;
+      padding: .4rem .68rem;
+      border-radius: 999px;
+      background: var(--wm-gold-soft);
+      color: var(--wm-gold);
+      font-size: .82rem;
+      font-weight: 820;
+    }
+
+    .wm-tag-red {
+      background: color-mix(in srgb, var(--wm-red) 12%, var(--wm-surface));
+      color: var(--wm-red);
+    }
+
+    .wm-price {
+      color: var(--wm-heading);
+      font-size: 1.48rem;
+      font-weight: 850;
+      letter-spacing: -.04em;
+    }
+
+    .wm-polish-divider {
+      height: 10px;
+      background: linear-gradient(180deg, var(--wm-white) 0 50%, var(--wm-red) 50% 100%);
+      border-block: 1px solid rgba(0, 0, 0, .18);
+    }
+
+    .wm-doc-quote {
+      border-left: 4px solid var(--wm-red);
+      padding-left: 1rem;
+      color: var(--wm-muted);
+      font-size: 1.03rem;
+    }
+
+    .wm-table-row {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      border-bottom: 1px solid var(--wm-border);
+    }
+
+    .wm-table-row:last-child {
+      border-bottom: 0;
+    }
+
+    .wm-table-row > div {
+      padding: 1rem 1.1rem;
+    }
+
+    .wm-table-row > div:first-child {
+      background:
+        linear-gradient(90deg,
+          color-mix(in srgb, var(--wm-surface-soft) 85%, transparent),
+          color-mix(in srgb, var(--wm-red) 7%, var(--wm-surface-soft)));
+      color: var(--wm-heading);
+      font-weight: 820;
+    }
+
+    .wm-table-row > div:last-child {
+      color: var(--wm-muted);
+    }
+
+    .wm-step-number {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--wm-white) 0 50%, var(--wm-red) 50% 100%);
+      color: #111827;
+      font-weight: 900;
+      border: 1px solid rgba(0, 0, 0, .18);
+    }
+
+    .wm-case-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .wm-case {
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+    }
+
+    .wm-case::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 7px;
+      background: linear-gradient(180deg, var(--wm-white) 0 50%, var(--wm-red) 50% 100%);
+      opacity: .98;
+    }
+
+    .wm-case-body {
+      padding-left: 1rem;
+    }
+
+    .wm-case-label {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .35rem .65rem;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--wm-red) 12%, var(--wm-surface));
+      color: var(--wm-red);
+      font-size: .8rem;
+      font-weight: 850;
+      margin-bottom: .85rem;
+    }
+
+    .wm-case h3 {
+      letter-spacing: -.04em;
+      line-height: 1.16;
+    }
+
+    .wm-case-meta {
+      color: var(--wm-muted-2);
+      font-size: .92rem;
+      border-top: 1px solid var(--wm-border);
+      padding-top: .9rem;
+      margin-top: 1rem;
+    }
+
+    .wm-case-kpi {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .65rem;
+      margin-top: 1rem;
+    }
+
+    .wm-case-kpi div {
+      border: 1px solid var(--wm-border);
+      border-radius: .9rem;
+      padding: .75rem;
+      background: color-mix(in srgb, var(--wm-surface-soft) 86%, transparent);
+    }
+
+    .wm-case-kpi strong {
+      display: block;
+      color: var(--wm-heading);
+      font-size: .95rem;
+    }
+
+    .wm-case-kpi span {
+      color: var(--wm-muted);
+      font-size: .8rem;
+    }
+
+    .wm-portfolio-note {
+      background:
+        linear-gradient(90deg,
+          color-mix(in srgb, var(--wm-surface) 92%, transparent),
+          color-mix(in srgb, var(--wm-red) 6%, var(--wm-surface)));
+      border: 1px solid var(--wm-border);
+      border-radius: 1.25rem;
+      color: var(--wm-muted);
+    }
+
+    .wm-aside {
+      background:
+        linear-gradient(160deg, #111827, #182a47 58%, #64141b);
+      color: var(--wm-white);
+      border-radius: 1.35rem;
+      box-shadow: var(--wm-shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .wm-aside::after {
+      content: "";
+      position: absolute;
+      inset: auto -8rem -7rem auto;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, rgba(255,255,255,.86) 0 50%, rgba(220,20,60,.62) 50% 100%);
+      transform: rotate(-18deg);
+    }
+
+    .wm-aside h2 {
+      color: var(--wm-white);
+    }
+
+    .wm-aside p {
+      color: rgba(255,255,255,.82);
+    }
+
+    .wm-aside .small {
+      color: rgba(255,255,255,.66);
+    }
+
+    .form-control,
+    .form-select {
+      background-color: var(--wm-surface-soft);
+      color: var(--wm-text);
+      border-color: var(--wm-border);
+    }
+
+    .form-control::placeholder {
+      color: color-mix(in srgb, var(--wm-muted) 74%, transparent);
+      opacity: 1;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      border-color: var(--wm-red);
+      box-shadow: 0 0 0 .25rem color-mix(in srgb, var(--wm-red) 20%, transparent);
+    }
+
+    .wm-footer {
+      color: var(--wm-muted);
+      border-top: 1px solid var(--wm-border);
+      background: color-mix(in srgb, var(--wm-surface) 65%, transparent);
+    }
+
+    @media (max-width: 991.98px) {
+      .wm-case-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .wm-case-kpi {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .wm-hero {
+        min-height: auto;
+        padding-block: 4rem;
+      }
+
+      .wm-status-row,
+      .wm-table-row {
+        grid-template-columns: 1fr;
+      }
+
+      .wm-status-row strong {
+        text-align: left;
+        white-space: normal;
+      }
+
+      .wm-patriotic-ribbon {
+        opacity: .34;
+        width: 120vw;
+        right: -40vw;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wm-topline py-2">
+    <div class="container d-flex flex-wrap justify-content-between gap-2">
+      <span>Centrum Usług Regulacyjnych i Delegowania Decyzyjnego</span>
+      <span>Rzeczpospolita proceduralna. Sprawy szczególne. Tryby uzasadnione.</span>
     </div>
   </div>
-</section>
+
+  <div class="wm-flag-strip" aria-hidden="true"></div>
+
+  <nav class="navbar navbar-expand-lg sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-3" href="#">
+        <span class="wm-logo-mark">WM</span>
+        <span class="wm-logo-text fw-bold fs-4">WynajmijMinistra.pl</span>
+      </a>
+
+      <button
+        class="navbar-toggler wm-btn-outline"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+        aria-controls="mainNav"
+        aria-expanded="false"
+        aria-label="Pokaż nawigację"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse mt-3 mt-lg-0" id="mainNav">
+        <ul class="navbar-nav ms-lg-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#oferta">Zakres usług</a></li>
+          <li class="nav-item"><a class="nav-link" href="#podstawa">Podstawa prawna</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#proces">Proces</a></li>
+          <li class="nav-item"><a class="nav-link" href="#wniosek">Wniosek</a></li>
+          <li class="nav-item ms-lg-2">
+            <button id="themeToggle" class="btn wm-btn-outline btn-sm rounded-pill px-3" type="button">
+              Tryb: jasny
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="wm-hero">
+    <div class="wm-patriotic-ribbon"></div>
+
+    <div class="wm-eagle-watermark" aria-hidden="true">
+      <svg viewBox="0 0 260 260" fill="currentColor" role="img">
+        <path d="M130 21c16 18 24 35 24 52 12-10 26-16 43-17-5 20-14 36-28 48 21-2 39 2 55 13-18 13-37 20-58 19 17 13 29 30 37 51-25-3-46-12-62-27v61h-22v-61c-16 15-37 24-62 27 8-21 20-38 37-51-21 1-40-6-58-19 16-11 34-15 55-13-14-12-23-28-28-48 17 1 31 7 43 17 0-17 8-34 24-52Zm0 58c-10 0-19 8-19 19s9 19 19 19 19-8 19-19-9-19-19-19Zm-38 148h76l-15 18h-46l-15-18Z"/>
+      </svg>
+    </div>
+
+    <div class="container py-5">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <div class="wm-eyebrow mb-3">
+            <strong>Status:</strong> nabór wniosków w trybie kwartalnym
+          </div>
+
+          <h1 class="wm-title mb-4">
+            Dostęp do ministra bez konieczności posiadania państwa.
+          </h1>
+
+          <p class="wm-lead">
+            WynajmijMinistra.pl to wyspecjalizowana platforma obsługi wpływu instytucjonalnego,
+            przeznaczona dla podmiotów, które identyfikują potrzebę zmiany prawa, ale nie chcą
+            ograniczać się do tradycyjnych, powolnych i społecznie męczących metod, takich jak
+            konsultacje, przekonywanie obywateli lub posiadanie racji.
+          </p>
+
+          <p class="wm-lead">
+            W ramach usługi zapewniamy czasową alokację właściwego przedstawiciela administracji
+            rządowej do obsługi procesu legislacyjnego, komunikacyjnego lub wyjaśniającego,
+            z zachowaniem pozorów neutralności, proporcjonalności oraz troski o interes publiczny.
+          </p>
+
+          <div class="d-flex flex-wrap gap-2 mt-4">
+            <span class="btn wm-btn-primary rounded-pill px-4 py-3">
+              Rozpocznij kwalifikację sprawy
+            </span>
+            <span class="btn wm-btn-outline rounded-pill px-4 py-3">
+              Pobierz katalog dostępnych resortów
+            </span>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <aside class="wm-hero-panel">
+            <div class="wm-status-head p-4">
+              <h2 class="h5 mb-1 text-white">Panel dostępności decyzyjnej</h2>
+              <p class="mb-0 opacity-75">Aktualizacja: po ostatnim posiedzeniu, przed pierwszym pytaniem.</p>
+            </div>
+
+            <div class="p-4">
+              <div class="wm-status-row">
+                <span>Minister do spraw pilnych</span>
+                <strong>dostępny po 22:00</strong>
+              </div>
+
+              <div class="wm-status-row">
+                <span>Minister od wyjaśniania zakupów</span>
+                <strong>czasowo przeciążony</strong>
+              </div>
+
+              <div class="wm-status-row">
+                <span>Minister od funduszy celowych</span>
+                <strong>dostępny przez fundację</strong>
+              </div>
+
+              <div class="wm-status-row">
+                <span>Minister od deregulacji znajomych</span>
+                <strong>rezerwacja warunkowa</strong>
+              </div>
+
+              <div class="wm-status-row">
+                <span>Pakiet „nie pamiętam spotkania”</span>
+                <strong>w cenie premium</strong>
+              </div>
+
+              <div class="wm-legal-note p-3 mt-3">
+                Usługa realizowana jest w oparciu o przepisy Ustawy z dnia 1 kwietnia 2026 r.
+                o czasowym udostępnianiu funkcji publicznych do celów szczególnie uzasadnionych
+                gospodarczo, społecznie lub towarzysko, Dz.U. 2026 poz. 404.
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="wm-polish-divider" aria-hidden="true"></div>
+
+  <main class="pb-5">
+    <section id="oferta" class="py-5">
+      <div class="container">
+        <div class="row align-items-end g-4 mb-4">
+          <div class="col-lg-6">
+            <h2 class="wm-section-title display-6 fw-bold mb-0">Zakres usług regulacyjnych</h2>
+          </div>
+          <div class="col-lg-6">
+            <p class="wm-muted mb-0">
+              Każdy pakiet został zaprojektowany tak, aby możliwie płynnie przeprowadzić klienta
+              od prywatnego interesu do publicznego uzasadnienia, z minimalnym tarciem medialnym
+              i maksymalną elastycznością interpretacyjną.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-md-6 col-xl-4">
+            <article class="wm-card h-100 p-4">
+              <span class="wm-tag mb-3">pakiet legislacyjny</span>
+              <h3 class="h5 wm-section-title">Minister „Projekt był długo analizowany”</h3>
+              <p class="wm-muted">
+                Rekomendowany przy sprawach, które powstały nagle, ale wymagają historii
+                instytucjonalnej dłuższej niż ostatni weekend.
+              </p>
+              <div class="wm-price mb-2">od 1 uzasadnienia ogólnego</div>
+              <ul class="wm-muted ps-3 mb-0">
+                <li>opracowanie narracji o wieloletnich pracach koncepcyjnych,</li>
+                <li>wskazanie potrzeby systemowej w języku możliwym do zacytowania,</li>
+                <li>odpowiedź na pytanie, dlaczego nikt wcześniej o tym nie słyszał.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-xl-4">
+            <article class="wm-card h-100 p-4">
+              <span class="wm-tag wm-tag-red mb-3">pakiet pilny</span>
+              <h3 class="h5 wm-section-title">Minister „Nie można było czekać”</h3>
+              <p class="wm-muted">
+                Dla projektów wymagających natychmiastowego procedowania, szczególnie wtedy,
+                gdy spokojna analiza mogłaby ujawnić, że pośpiech jest jedynym argumentem.
+              </p>
+              <div class="wm-price mb-2">tryb nocny + korekta</div>
+              <ul class="wm-muted ps-3 mb-0">
+                <li>uruchomienie ścieżki przyspieszonej bez zbędnej widoczności,</li>
+                <li>koordynacja wypowiedzi o odpowiedzialności państwa,</li>
+                <li>komunikat „działaliśmy pod presją okoliczności”.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-xl-4">
+            <article class="wm-card h-100 p-4">
+              <span class="wm-tag mb-3">pakiet dotacyjny</span>
+              <h3 class="h5 wm-section-title">Minister „To nie był luksus, tylko odporność”</h3>
+              <p class="wm-muted">
+                Dla przedsięwzięć, które na poziomie faktury wyglądają jak zakup,
+                ale na poziomie prezentacji stają się elementem odbudowy, innowacji lub transformacji.
+              </p>
+              <div class="wm-price mb-2">grant + korekta opisu</div>
+              <ul class="wm-muted ps-3 mb-0">
+                <li>przekład potrzeb konsumpcyjnych na język celów rozwojowych,</li>
+                <li>rubryka „wpływ społeczny” dla rzeczy, które głównie stoją, pływają albo błyszczą,</li>
+                <li>moduł reakcji kryzysowej po publikacji mapy beneficjentów.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-xl-4">
+            <article class="wm-card h-100 p-4">
+              <span class="wm-tag mb-3">pakiet kompetencyjny</span>
+              <h3 class="h5 wm-section-title">Minister „Kwalifikacje zostały uzupełnione”</h3>
+              <p class="wm-muted">
+                Dla klientów, którzy muszą wykazać formalne przygotowanie do funkcji publicznej,
+                nadzorczej lub doradczej, ale nie chcą, aby edukacja przeszkadzała im w karierze.
+              </p>
+              <div class="wm-price mb-2">dyplom, pieczęć, dyskrecja</div>
+              <ul class="wm-muted ps-3 mb-0">
+                <li>narracja o podnoszeniu kwalifikacji w intensywnej aktywności zawodowej,</li>
+                <li>biogram, w którym daty zachowują się uprzejmie,</li>
+                <li>wariant rozszerzony: „nie miałem wpływu na renomę uczelni”.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-xl-4">
+            <article class="wm-card h-100 p-4">
+              <span class="wm-tag wm-tag-red mb-3">pakiet bezpieczeństwa</span>
+              <h3 class="h5 wm-section-title">Minister „Nie możemy ujawnić szczegółów”</h3>
+              <p class="wm-muted">
+                Najlepszy wybór dla działań, których nie da się przekonująco obronić jawnością,
+                ale można je tymczasowo przykryć słowami o bezpieczeństwie i wrażliwości operacyjnej.
+              </p>
+              <div class="wm-price mb-2">tajemnica + trzy akapity</div>
+              <ul class="wm-muted ps-3 mb-0">
+                <li>klasyfikacja problemu jako zbyt delikatnego na prostą odpowiedź,</li>
+                <li>komunikacja z użyciem słów, które kończą rozmowę zamiast ją zaczynać,</li>
+                <li>formuła „odpowiemy w trybie niejawnym”.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-xl-4">
+            <article class="wm-card h-100 p-4">
+              <span class="wm-tag mb-3">pakiet zakupowy</span>
+              <h3 class="h5 wm-section-title">Minister „Cena wynikała z sytuacji”</h3>
+              <p class="wm-muted">
+                Dla zamówień, w których cena, dostawca i termin realizacji tworzą układ
+                wymagający ograniczonego dostępu do dokumentów źródłowych.
+              </p>
+              <div class="wm-price mb-2">procedura nadzwyczajna</div>
+              <ul class="wm-muted ps-3 mb-0">
+                <li>uzasadnienie zakupu w formule kryzysowej, nawet po ustaniu kryzysu,</li>
+                <li>przeniesienie akcentu z ceny na intencję,</li>
+                <li>wyjaśnienie, że rynek był trudny, a decyzje odpowiedzialne.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="podstawa" class="py-5">
+      <div class="container">
+        <div class="row g-3 align-items-stretch">
+          <div class="col-lg-6">
+            <article class="wm-card h-100 p-4 p-lg-5">
+              <h2 class="wm-section-title fw-bold mb-3">Podstawa formalna świadczenia usług</h2>
+
+              <p class="wm-muted">
+                Platforma działa w modelu dostępu regulacyjnego, zgodnie z założeniami
+                Ustawy z dnia 1 kwietnia 2026 r. o czasowym udostępnianiu funkcji publicznych
+                do celów szczególnie uzasadnionych gospodarczo, społecznie lub towarzysko,
+                zwanej dalej „Ustawą o Operacyjnej Dostępności Ministrów”.
+              </p>
+
+              <p class="wm-doc-quote">
+                Art. 7 ust. 3: Czasowe udostępnienie osoby funkcyjnej może nastąpić,
+                jeżeli przemawia za tym ważny interes klienta, który po odpowiednim opracowaniu
+                może zostać przedstawiony jako ważny interes państwa.
+              </p>
+
+              <p class="wm-muted mb-0">
+                Zgodnie z art. 13 ust. 2 tejże ustawy, minister udostępniony w trybie
+                komercyjno-publicznym zachowuje pozory niezależności, o ile klient nie żąda
+                ich zniesienia wprost, na piśmie albo w obecności osób trzecich posiadających telefony.
+              </p>
+            </article>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="wm-card overflow-hidden h-100">
+              <div class="wm-table-row">
+                <div>Tryb zwykły</div>
+                <div>Sprawy wymagające jednej wypowiedzi, dwóch spotkań i późniejszego stwierdzenia, że żadnych ustaleń nie było.</div>
+              </div>
+
+              <div class="wm-table-row">
+                <div>Tryb pilny</div>
+                <div>Sprawy wymagające procedowania przed pojawieniem się analizy, opinii publicznej lub zdrowego rozsądku.</div>
+              </div>
+
+              <div class="wm-table-row">
+                <div>Tryb szczególny</div>
+                <div>Sprawy, w których ujawnienie szczegółów mogłoby zaszkodzić sprawie, stronie, ministrowi albo narracji.</div>
+              </div>
+
+              <div class="wm-table-row">
+                <div>Tryb naprawczy</div>
+                <div>Sprawy po publikacji medialnej, kontroli, wycieku dokumentów albo wypowiedzi osoby, której nie udało się skoordynować.</div>
+              </div>
+
+              <div class="wm-table-row">
+                <div>Tryb audytowy</div>
+                <div>Sprawy wymagające przesunięcia odpowiedzi na czas, w którym odbiorcy będą już zmęczeni szczegółami.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="py-5">
+      <div class="container">
+        <div class="row align-items-end g-4 mb-4">
+          <div class="col-lg-6">
+            <h2 class="wm-section-title display-6 fw-bold mb-0">
+              Wybrane wdrożenia regulacyjne
+            </h2>
+          </div>
+
+          <div class="col-lg-6">
+            <p class="wm-muted mb-0">
+              Nasze portfolio obejmuje projekty rozpoznawalne, polaryzujące i odpowiednio
+              trudne do obrony bez użycia słów „bezpieczeństwo”, „dobro dzieci”, „suwerenność”,
+              „transparentność” oraz „nie znam szczegółów”. Każde wdrożenie pokazuje, że
+              w administracji najważniejsze jest właściwe przepisanie celu prywatnego na język publiczny.
+            </p>
+          </div>
+        </div>
+
+        <div class="wm-portfolio-note p-4 mb-4">
+          <strong class="d-block mb-2" style="color: var(--wm-heading);">
+            Nota Departamentu Sukcesu Publicznego
+          </strong>
+          <p class="mb-0">
+            Centrum nie komentuje szczegółów relacji z klientami, ponieważ poufność jest fundamentem
+            rynku wpływu. Potwierdzamy jedynie, że poniższe formaty kampanii stanowią modelowe przykłady
+            rozwiązań, które każdy obywatel widział już w wiadomościach, a których nikt odpowiedzialny
+            nigdy nie zamawiał, nie koordynował i nie pamięta.
+          </p>
+        </div>
+
+        <div class="wm-case-grid">
+          <article class="wm-card wm-case p-4">
+            <div class="wm-case-body">
+              <span class="wm-case-label">model: komisja jako produkt</span>
+              <h3 class="h4">Pakiet „Lex Tusk” — komisja, która od początku rozumie kierunek prac</h3>
+
+              <p class="wm-muted">
+                W tym wariancie klient otrzymuje organ publiczny o nazwie technicznej,
+                funkcji politycznej i atmosferze postępowania, które nie potrzebuje jeszcze
+                wyroku, ponieważ sama procedura generuje wystarczająco dużo skutków komunikacyjnych.
+              </p>
+
+              <p class="wm-muted">
+                Wdrożenie klasy „Lex Tusk” jest rekomendowane, gdy celem nie jest wyłącznie
+                zbadanie zjawiska, lecz także stworzenie ramy, w której przeciwnik polityczny
+                występuje jako problem systemowy. Projekt jest szczególnie skuteczny wtedy,
+                gdy pseudonim ustawy staje się bardziej znany niż jej treść.
+              </p>
+
+              <div class="wm-case-kpi">
+                <div><strong>Rezultat</strong><span>maksymalna widoczność</span></div>
+                <div><strong>Ryzyko</strong><span>konstytucyjne</span></div>
+                <div><strong>Reakcja</strong><span>marsze, opinie, nerwy</span></div>
+              </div>
+
+              <div class="wm-case-meta">
+                Status katalogowy: kampania referencyjna dla klientów zainteresowanych komisją,
+                która formalnie bada wpływy, a praktycznie produkuje wpływ.
+              </div>
+            </div>
+          </article>
+
+          <article class="wm-card wm-case p-4">
+            <div class="wm-case-body">
+              <span class="wm-case-label">model: pluralizm przez eliminację</span>
+              <h3 class="h4">Pakiet „Lex TVN” — wolny rynek mediów po wcześniejszym zawężeniu rynku</h3>
+
+              <p class="wm-muted">
+                To rozwiązanie dla klientów, którzy chcą regulować media w taki sposób,
+                aby dokument brzmiał ogólnie, opinia publiczna wiedziała, o kogo chodzi,
+                a rzecznik mógł z pełną powagą tłumaczyć, że ustawa nie dotyczy nikogo konkretnego.
+              </p>
+
+              <p class="wm-muted">
+                Moduł „Lex TVN” łączy język bezpieczeństwa informacyjnego, repolonizacji
+                i porządkowania rynku w jeden format legislacyjny. Szczególnie przydatny,
+                gdy trzeba jednocześnie uspokoić własne zaplecze, zirytować partnerów zagranicznych
+                i udawać, że ograniczanie konkretnego medium jest ćwiczeniem z neutralności.
+              </p>
+
+              <div class="wm-case-kpi">
+                <div><strong>Rezultat</strong><span>weto końcowe</span></div>
+                <div><strong>Ryzyko</strong><span>dyplomatyczne</span></div>
+                <div><strong>Reakcja</strong><span>protesty i alerty</span></div>
+              </div>
+
+              <div class="wm-case-meta">
+                Status katalogowy: kampania dla podmiotów wierzących, że pluralizm najlepiej
+                wzmacnia się przez wskazanie, kto ma go za dużo.
+              </div>
+            </div>
+          </article>
+
+          <article class="wm-card wm-case p-4">
+            <div class="wm-case-body">
+              <span class="wm-case-label">model: szkoła pod nadzorem</span>
+              <h3 class="h4">Pakiet „Lex Czarnek” — centralizacja troski o dzieci</h3>
+
+              <p class="wm-muted">
+                Wdrożenie „Lex Czarnek” pokazuje, jak zbudować projekt edukacyjny na założeniu,
+                że szkoła jest zbyt lokalna, rodzice zbyt różnorodni, dyrektorzy zbyt samodzielni,
+                a organizacje społeczne zbyt obecne, aby pozostawić sprawę bez dodatkowego
+                szczebla kontroli.
+              </p>
+
+              <p class="wm-muted">
+                Najważniejszym elementem kampanii jest narracja ochronna. Wystarczy ogłosić,
+                że projekt chroni dzieci, a ciężar dowodu zostaje przeniesiony na wszystkich,
+                którzy pytają, przed czym dokładnie. Produkt sprawdza się szczególnie dobrze
+                w środowisku, gdzie sprzeciw nauczycieli i samorządów można opisać jako niezrozumienie troski.
+              </p>
+
+              <div class="wm-case-kpi">
+                <div><strong>Rezultat</strong><span>weto i powrót</span></div>
+                <div><strong>Ryzyko</strong><span>oświatowe</span></div>
+                <div><strong>Reakcja</strong><span>protest środowisk</span></div>
+              </div>
+
+              <div class="wm-case-meta">
+                Status katalogowy: kampania dla klientów, którzy chcą zwiększyć wolność szkoły
+                przez zwiększenie liczby osób mogących jej zabronić.
+              </div>
+            </div>
+          </article>
+
+          <article class="wm-card wm-case p-4">
+            <div class="wm-case-body">
+              <span class="wm-case-label">model: wiatr w pakiecie z rachunkiem</span>
+              <h3 class="h4">Pakiet „Ustawa wiatrakowa” — transformacja energetyczna z dołączonym zaskoczeniem</h3>
+
+              <p class="wm-muted">
+                Ten format pozwala połączyć społecznie akceptowalny cel, czyli tańszą energię
+                i zieloną transformację, z zapisami, które sprawiają, że debata bardzo szybko
+                przestaje dotyczyć energii, a zaczyna dotyczyć odległości, map, własności
+                i podejrzenia, że ktoś przeczytał projekt dopiero po konferencji.
+              </p>
+
+              <p class="wm-muted">
+                Pakiet „Ustawa wiatrakowa” jest przeznaczony dla klientów, którzy chcą przestawić
+                infrastrukturę szybko, najlepiej zanim lokalne wspólnoty zorientują się,
+                gdzie dokładnie kończy się strategia państwa, a zaczyna czyjaś działka.
+              </p>
+
+              <div class="wm-case-kpi">
+                <div><strong>Rezultat</strong><span>burza proceduralna</span></div>
+                <div><strong>Ryzyko</strong><span>własnościowe</span></div>
+                <div><strong>Reakcja</strong><span>awaria komunikacji</span></div>
+              </div>
+
+              <div class="wm-case-meta">
+                Status katalogowy: kampania dla projektów, w których słuszny kierunek ma
+                nieszczęście podróżować z bardzo podejrzanym bagażem.
+              </div>
+            </div>
+          </article>
+
+          <article class="wm-card wm-case p-4">
+            <div class="wm-case-body">
+              <span class="wm-case-label">model: wolność przez paragraf</span>
+              <h3 class="h4">Pakiet „Mowa nienawiści” — rozszerzamy ochronę, aż zacznie się spór o cenzurę</h3>
+
+              <p class="wm-muted">
+                To kampania dla projektów, które startują z bardzo łatwego do obrony miejsca:
+                ochrony ludzi przed przemocą, nienawiścią i realnym zagrożeniem. Następnie
+                projekt przechodzi przez etap legislacyjny, w którym druga strona otrzymuje
+                gotową opowieść o kneblowaniu debaty, karaniu za poglądy i końcu wolności słowa.
+              </p>
+
+              <p class="wm-muted">
+                Wariant ten jest ceniony za zdolność generowania dwóch równoległych rzeczywistości.
+                Jedna strona mówi o bezpieczeństwie ludzi, druga o bezpieczeństwie języka,
+                a obie są przekonane, że przeciwnik celowo nie rozumie tematu. Z punktu widzenia
+                rynku kontrowersji jest to produkt wyjątkowo stabilny.
+              </p>
+
+              <div class="wm-case-kpi">
+                <div><strong>Rezultat</strong><span>spór aksjologiczny</span></div>
+                <div><strong>Ryzyko</strong><span>wolnościowe</span></div>
+                <div><strong>Reakcja</strong><span>dwie Polski online</span></div>
+              </div>
+
+              <div class="wm-case-meta">
+                Status katalogowy: kampania dla klientów, którzy chcą wejść w temat moralnie
+                oczywisty i wyjść z niego z oskarżeniem o autorytaryzm.
+              </div>
+            </div>
+          </article>
+
+          <article class="wm-card wm-case p-4">
+            <div class="wm-case-body">
+              <span class="wm-case-label">model: większość sumienia</span>
+              <h3 class="h4">Pakiet „Aborcja” — zmiana prawa, która przegrywa o kilka sumień</h3>
+
+              <p class="wm-muted">
+                Ten model obsługuje projekty, w których obietnica wyborcza spotyka się
+                z arytmetyką koalicyjną, światopoglądem, nieobecnościami oraz tym szczególnym
+                rodzajem dyscypliny partyjnej, która kończy się dokładnie wtedy, gdy zaczyna
+                być potrzebna.
+              </p>
+
+              <p class="wm-muted">
+                Pakiet „Aborcja” pokazuje, jak długo można utrzymywać komunikat o determinacji,
+                gdy większość parlamentarna okazuje się bardziej pojęciem psychologicznym
+                niż matematycznym. Najlepiej działa w sytuacjach, gdy własny elektorat nie chce
+                już słyszeć, że sprawa jest złożona, a koalicjant bardzo chce, aby nadal była.
+              </p>
+
+              <div class="wm-case-kpi">
+                <div><strong>Rezultat</strong><span>głosowanie graniczne</span></div>
+                <div><strong>Ryzyko</strong><span>koalicyjne</span></div>
+                <div><strong>Reakcja</strong><span>gniew własnych wyborców</span></div>
+              </div>
+
+              <div class="wm-case-meta">
+                Status katalogowy: kampania dla klientów, którzy mają mandat, program i problem,
+                że do ustawy nadal potrzeba głosów.
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="proces" class="py-5">
+      <div class="container">
+        <div class="row align-items-end g-4 mb-4">
+          <div class="col-lg-6">
+            <h2 class="wm-section-title display-6 fw-bold mb-0">Proces obsługi</h2>
+          </div>
+          <div class="col-lg-6">
+            <p class="wm-muted mb-0">
+              Model realizacji opiera się na czterech etapach, których nazwy dobrano tak,
+              aby mogły występować zarówno w ofercie doradczej, jak i w protokole z kontroli.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-md-6 col-xl-3">
+            <article class="wm-card h-100 p-4">
+              <span class="wm-step-number mb-3">1</span>
+              <h3 class="h5 wm-section-title">Identyfikacja potrzeby</h3>
+              <p class="wm-muted mb-0">
+                Klient opisuje oczekiwany rezultat. Zespół ustala, czy rezultat należy nazwać
+                reformą, deregulacją, programem wsparcia czy działaniem osłonowym.
+              </p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-xl-3">
+            <article class="wm-card h-100 p-4">
+              <span class="wm-step-number mb-3">2</span>
+              <h3 class="h5 wm-section-title">Dobór osoby funkcyjnej</h3>
+              <p class="wm-muted mb-0">
+                Wybierany jest minister o odpowiedniej dostępności, odporności medialnej
+                i zdolności do wypowiedzenia słowa „transparentność” bez zmiany mimiki.
+              </p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-xl-3">
+            <article class="wm-card h-100 p-4">
+              <span class="wm-step-number mb-3">3</span>
+              <h3 class="h5 wm-section-title">Opracowanie uzasadnienia</h3>
+              <p class="wm-muted mb-0">
+                Prywatny interes zostaje przepisany na język dobra wspólnego, a następnie
+                wzbogacony o bezpieczeństwo, rozwój, innowacyjność lub troskę o rodziny.
+              </p>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-xl-3">
+            <article class="wm-card h-100 p-4">
+              <span class="wm-step-number mb-3">4</span>
+              <h3 class="h5 wm-section-title">Stabilizacja narracji</h3>
+              <p class="wm-muted mb-0">
+                Po wdrożeniu zapewniamy pakiet odpowiedzi na pytania, które nie powinny paść,
+                oraz zestaw sformułowań pozwalających wyjaśnić, że sprawa jest złożona.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="wniosek" class="py-5">
+      <div class="container">
+        <div class="row g-3 align-items-stretch">
+          <div class="col-lg-5">
+            <aside class="wm-aside h-100 p-4 p-lg-5">
+              <h2 class="fw-bold mb-3">Wniosek o czasową alokację ministra</h2>
+
+              <p>
+                Formularz kwalifikacyjny pozwala określić, czy dana sprawa wymaga ministra,
+                wiceministra, pełnomocnika, rzecznika, komisji, audytu albo wyłącznie
+                dobrze napisanego komunikatu, że państwo traktuje temat poważnie.
+              </p>
+
+              <p>
+                W przypadku spraw o podwyższonym ryzyku medialnym rekomendujemy zaznaczenie
+                wariantu „interes strategiczny”, ponieważ jest to pojęcie pojemne, poważne
+                i zwykle niepotrzebnie niepokojące dla osób zadających pytania.
+              </p>
+
+              <p class="small mb-0">
+                System demonstracyjny. Formularz nie zapisuje danych i nie przekazuje ich dalej.
+                To właściwie jedyna część procesu, która jest w pełni transparentna.
+              </p>
+            </aside>
+          </div>
+
+          <div class="col-lg-7">
+            <form class="wm-card h-100 p-4 p-lg-5" onsubmit="return false;">
+              <div class="mb-3">
+                <label for="nazwa" class="form-label fw-bold">Nazwa sprawy</label>
+                <input
+                  id="nazwa"
+                  class="form-control"
+                  placeholder="Np. Program Stabilizacji Otoczenia Regulacyjnego Wybranych Podmiotów"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="minister" class="form-label fw-bold">Preferowany profil osoby funkcyjnej</label>
+                <select id="minister" class="form-select">
+                  <option>Minister z pełną zdolnością do mówienia ogólnikami</option>
+                  <option>Minister techniczny, mało medialny, podpisujący</option>
+                  <option>Minister polityczny, odporny na pytania uzupełniające</option>
+                  <option>Wiceminister do zadań, których nie chce firmować minister</option>
+                  <option>Pełnomocnik rządu do spraw, które brzmią lepiej niż wyglądają</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="interes" class="form-label fw-bold">Opis interesu klienta</label>
+                <textarea
+                  id="interes"
+                  class="form-control"
+                  rows="4"
+                  placeholder="Proszę opisać oczekiwany rezultat możliwie prywatnie. Na etapie drugim zostanie on przepisany na język publiczny."
+                ></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label for="uzasadnienie" class="form-label fw-bold">Preferowane uzasadnienie publiczne</label>
+                <select id="uzasadnienie" class="form-select">
+                  <option>Bezpieczeństwo państwa</option>
+                  <option>Rozwój innowacyjnej gospodarki</option>
+                  <option>Wzmocnienie odporności społecznej</option>
+                  <option>Dobro rodzin i lokalnych wspólnot</option>
+                  <option>Dostosowanie do standardów europejskich, ale selektywnie</option>
+                  <option>Usunięcie barier administracyjnych dla podmiotów gotowych</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="ryzyko" class="form-label fw-bold">Znane ryzyka komunikacyjne</label>
+                <textarea
+                  id="ryzyko"
+                  class="form-control"
+                  rows="4"
+                  placeholder="Np. istnieją faktury, daty nie układają się elegancko, ktoś był na spotkaniu, ktoś ma maile, dziennikarz pytał już dwa razy."
+                ></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label for="tryb" class="form-label fw-bold">Oczekiwany tryb realizacji</label>
+                <select id="tryb" class="form-select">
+                  <option>Zwykły — sprawa może udawać normalną</option>
+                  <option>Pilny — sprawa nie powinna być czytana zbyt długo</option>
+                  <option>Szczególny — szczegóły utrudniają odbiór całości</option>
+                  <option>Naprawczy — materiał prasowy już istnieje</option>
+                  <option>Audytowy — odpowiedzi należy udzielić w przyszłości</option>
+                </select>
+              </div>
+
+              <p class="wm-muted small">
+                Przesłanie wniosku w wersji demonstracyjnej jest niedostępne do czasu zakończenia
+                konsultacji z Departamentem Wygodnych Przypadków.
+              </p>
+
+              <button class="btn btn-secondary rounded-pill w-100 py-3" disabled>
+                Przekaż do wstępnej oceny politycznej
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wm-footer">
+    <div class="container py-4 d-flex flex-wrap justify-content-between gap-3 small">
+      <span>© 2026 WynajmijMinistra.pl — demonstracyjna platforma satyryczna.</span>
+      <span>Nie jesteśmy organem administracji publicznej, co w obecnych warunkach uznajemy za informację uspokajającą.</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const button = document.getElementById('themeToggle');
+      const storageKey = 'wm-theme';
+
+      const getPreferredTheme = () => {
+        const stored = localStorage.getItem(storageKey);
+        if (stored === 'light' || stored === 'dark') return stored;
+
+        return window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
+      };
+
+      const setTheme = (theme) => {
+        root.setAttribute('data-bs-theme', theme);
+        button.textContent = `Tryb: ${theme === 'dark' ? 'ciemny' : 'jasny'}`;
+      };
+
+      setTheme(getPreferredTheme());
+
+      button.addEventListener('click', () => {
+        const current = root.getAttribute('data-bs-theme') === 'dark' ? 'dark' : 'light';
+        const next = current === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(storageKey, next);
+        setTheme(next);
+      });
+    })();
+  </script>
+</body>
+</html>
