@@ -17,18 +17,22 @@
       --wm-surface: #ffffff;
       --wm-surface-soft: #f8f4ec;
       --wm-text: #171717;
+      --wm-heading: #15243b;
       --wm-muted: #514b43;
       --wm-muted-2: #71685e;
       --wm-border: #cdc2b0;
-      --wm-navy: #15243b;
-      --wm-navy-2: #213b64;
-      --wm-red: #b3262f;
-      --wm-red-2: #d7353f;
+
+      --wm-nav-bg: rgba(255, 255, 255, .92);
+      --wm-nav-text: #171717;
+
+      --wm-red: #dc143c;
+      --wm-white: #ffffff;
       --wm-gold: #9b7933;
       --wm-gold-soft: #eadbb9;
       --wm-green: #28664b;
+
       --wm-shadow: 0 22px 60px rgba(24, 23, 20, .14);
-      --wm-glass: rgba(255, 255, 255, .82);
+      --wm-glass: rgba(255, 255, 255, .84);
       --wm-sejm-photo: url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Sejm_rp_front_20070103.jpg");
     }
 
@@ -37,51 +41,60 @@
       --wm-surface: #171d28;
       --wm-surface-soft: #202838;
       --wm-text: #f6f1e8;
+      --wm-heading: #f6f1e8;
       --wm-muted: #d0c6b7;
       --wm-muted-2: #b9ad9b;
       --wm-border: #404a5d;
-      --wm-navy: #ead29a;
-      --wm-navy-2: #ffdf92;
-      --wm-red: #ff6470;
-      --wm-red-2: #d7434d;
+
+      --wm-nav-bg: rgba(12, 16, 24, .94);
+      --wm-nav-text: #f6f1e8;
+
+      --wm-red: #dc143c;
+      --wm-white: #ffffff;
       --wm-gold: #e0bf69;
       --wm-gold-soft: #433721;
       --wm-green: #91d2aa;
+
       --wm-shadow: 0 24px 70px rgba(0, 0, 0, .48);
       --wm-glass: rgba(18, 24, 34, .84);
     }
 
     body {
       background:
-        radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--wm-red) 18%, transparent), transparent 32rem),
-        radial-gradient(circle at 85% 8%, color-mix(in srgb, var(--wm-gold) 20%, transparent), transparent 34rem),
+        radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--wm-red) 14%, transparent), transparent 32rem),
+        radial-gradient(circle at 85% 8%, color-mix(in srgb, var(--wm-gold) 18%, transparent), transparent 34rem),
         linear-gradient(180deg, var(--wm-bg), color-mix(in srgb, var(--wm-bg) 84%, #000 16%));
       color: var(--wm-text);
       line-height: 1.58;
     }
 
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .wm-title,
+    .wm-section-title {
+      color: var(--wm-heading);
+    }
+
     .wm-topline {
-      background:
-        linear-gradient(90deg, #ffffff 0 50%, #dc143c 50% 100%);
-      color: #111827;
+      background: var(--wm-nav-bg);
+      color: var(--wm-nav-text);
       font-size: .9rem;
       border-bottom: 1px solid var(--wm-border);
+      backdrop-filter: blur(14px);
     }
 
-    [data-bs-theme="dark"] .wm-topline {
-      color: #f8f9fa;
-      background:
-        linear-gradient(90deg, #151a24 0 50%, #7d1821 50% 100%);
-    }
-
-    .wm-topline-inner {
-      background: color-mix(in srgb, var(--wm-glass) 88%, transparent);
-      border-inline: 1px solid color-mix(in srgb, var(--wm-border) 70%, transparent);
-      backdrop-filter: blur(10px);
+    .wm-flag-strip {
+      height: 8px;
+      background: linear-gradient(180deg, var(--wm-white) 0 50%, var(--wm-red) 50% 100%);
+      border-bottom: 1px solid rgba(0, 0, 0, .15);
     }
 
     .navbar {
-      background: color-mix(in srgb, var(--wm-glass) 88%, transparent);
+      background: var(--wm-nav-bg);
       border-bottom: 1px solid var(--wm-border);
       backdrop-filter: blur(14px);
     }
@@ -92,16 +105,15 @@
       border-radius: 13px;
       display: grid;
       place-items: center;
-      background:
-        linear-gradient(180deg, #fff 0 49%, var(--wm-red) 49% 100%);
+      background: linear-gradient(180deg, var(--wm-white) 0 50%, var(--wm-red) 50% 100%);
       color: #111827;
       font-weight: 950;
       box-shadow: var(--wm-shadow);
-      border: 1px solid color-mix(in srgb, var(--wm-border) 75%, transparent);
+      border: 1px solid rgba(0, 0, 0, .16);
     }
 
     .wm-logo-text {
-      color: var(--wm-text);
+      color: var(--wm-nav-text);
       letter-spacing: -.035em;
     }
 
@@ -178,8 +190,8 @@
           color-mix(in srgb, var(--wm-bg) 48%, transparent) 100%
         ),
         linear-gradient(180deg,
-          color-mix(in srgb, #fff 8%, transparent),
-          color-mix(in srgb, var(--wm-red) 14%, transparent)
+          color-mix(in srgb, var(--wm-white) 8%, transparent),
+          color-mix(in srgb, var(--wm-red) 10%, transparent)
         );
     }
 
@@ -191,8 +203,8 @@
           rgba(13, 17, 24, .62) 100%
         ),
         linear-gradient(180deg,
-          rgba(0, 0, 0, .15),
-          rgba(125, 24, 33, .22)
+          rgba(0, 0, 0, .10),
+          rgba(220, 20, 60, .16)
         );
     }
 
@@ -203,12 +215,9 @@
       height: 180px;
       z-index: -1;
       transform: rotate(-14deg);
-      opacity: .78;
-      background:
-        linear-gradient(180deg,
-          rgba(255, 255, 255, .82) 0 50%,
-          color-mix(in srgb, var(--wm-red) 78%, transparent) 50% 100%);
-      border: 1px solid color-mix(in srgb, var(--wm-border) 55%, transparent);
+      opacity: .82;
+      background: linear-gradient(180deg, var(--wm-white) 0 50%, var(--wm-red) 50% 100%);
+      border: 1px solid rgba(0, 0, 0, .16);
       box-shadow: var(--wm-shadow);
     }
 
@@ -226,7 +235,7 @@
 
     [data-bs-theme="dark"] .wm-eagle-watermark {
       opacity: .13;
-      color: #ffffff;
+      color: var(--wm-white);
     }
 
     .wm-eagle-watermark svg {
@@ -252,7 +261,6 @@
     }
 
     .wm-title {
-      color: var(--wm-navy);
       font-size: clamp(2.6rem, 5.8vw, 5.9rem);
       line-height: .96;
       letter-spacing: -.078em;
@@ -284,14 +292,8 @@
     }
 
     .wm-status-head {
-      background:
-        linear-gradient(90deg, #111827, #1e3150 70%, color-mix(in srgb, var(--wm-red) 75%, #111827));
-      color: #fff;
-    }
-
-    [data-bs-theme="dark"] .wm-status-head {
-      background:
-        linear-gradient(90deg, #05070b, #101826 70%, #5c121a);
+      background: #111827;
+      color: var(--wm-white);
     }
 
     .wm-status-row {
@@ -333,7 +335,6 @@
     }
 
     .wm-section-title {
-      color: var(--wm-navy);
       letter-spacing: -.055em;
       line-height: 1.04;
     }
@@ -354,7 +355,7 @@
     }
 
     .wm-price {
-      color: var(--wm-navy-2);
+      color: var(--wm-heading);
       font-size: 1.48rem;
       font-weight: 850;
       letter-spacing: -.04em;
@@ -362,22 +363,8 @@
 
     .wm-polish-divider {
       height: 10px;
-      background:
-        linear-gradient(90deg,
-          #fff 0 22%,
-          var(--wm-red) 22% 44%,
-          #fff 44% 66%,
-          var(--wm-red) 66% 100%);
-      border-block: 1px solid var(--wm-border);
-    }
-
-    [data-bs-theme="dark"] .wm-polish-divider {
-      background:
-        linear-gradient(90deg,
-          #e6e1d7 0 22%,
-          #8d1d27 22% 44%,
-          #e6e1d7 44% 66%,
-          #8d1d27 66% 100%);
+      background: linear-gradient(180deg, var(--wm-white) 0 50%, var(--wm-red) 50% 100%);
+      border-block: 1px solid rgba(0, 0, 0, .18);
     }
 
     .wm-doc-quote {
@@ -406,7 +393,7 @@
         linear-gradient(90deg,
           color-mix(in srgb, var(--wm-surface-soft) 85%, transparent),
           color-mix(in srgb, var(--wm-red) 7%, var(--wm-surface-soft)));
-      color: var(--wm-navy);
+      color: var(--wm-heading);
       font-weight: 820;
     }
 
@@ -420,17 +407,102 @@
       display: grid;
       place-items: center;
       border-radius: 50%;
-      background:
-        linear-gradient(180deg, #fff 0 50%, var(--wm-red) 50% 100%);
+      background: linear-gradient(180deg, var(--wm-white) 0 50%, var(--wm-red) 50% 100%);
       color: #111827;
       font-weight: 900;
+      border: 1px solid rgba(0, 0, 0, .18);
+    }
+
+    .wm-case-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .wm-case {
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+    }
+
+    .wm-case::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 7px;
+      background: linear-gradient(180deg, var(--wm-white) 0 50%, var(--wm-red) 50% 100%);
+      opacity: .98;
+    }
+
+    .wm-case-body {
+      padding-left: 1rem;
+    }
+
+    .wm-case-label {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .35rem .65rem;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--wm-red) 12%, var(--wm-surface));
+      color: var(--wm-red);
+      font-size: .8rem;
+      font-weight: 850;
+      margin-bottom: .85rem;
+    }
+
+    .wm-case h3 {
+      letter-spacing: -.04em;
+      line-height: 1.16;
+    }
+
+    .wm-case-meta {
+      color: var(--wm-muted-2);
+      font-size: .92rem;
+      border-top: 1px solid var(--wm-border);
+      padding-top: .9rem;
+      margin-top: 1rem;
+    }
+
+    .wm-case-kpi {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .65rem;
+      margin-top: 1rem;
+    }
+
+    .wm-case-kpi div {
       border: 1px solid var(--wm-border);
+      border-radius: .9rem;
+      padding: .75rem;
+      background: color-mix(in srgb, var(--wm-surface-soft) 86%, transparent);
+    }
+
+    .wm-case-kpi strong {
+      display: block;
+      color: var(--wm-heading);
+      font-size: .95rem;
+    }
+
+    .wm-case-kpi span {
+      color: var(--wm-muted);
+      font-size: .8rem;
+    }
+
+    .wm-portfolio-note {
+      background:
+        linear-gradient(90deg,
+          color-mix(in srgb, var(--wm-surface) 92%, transparent),
+          color-mix(in srgb, var(--wm-red) 6%, var(--wm-surface)));
+      border: 1px solid var(--wm-border);
+      border-radius: 1.25rem;
+      color: var(--wm-muted);
     }
 
     .wm-aside {
       background:
         linear-gradient(160deg, #111827, #182a47 58%, #64141b);
-      color: #fff;
+      color: var(--wm-white);
       border-radius: 1.35rem;
       box-shadow: var(--wm-shadow);
       overflow: hidden;
@@ -444,9 +516,12 @@
       width: 280px;
       height: 280px;
       border-radius: 50%;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.18) 0 50%, rgba(220,20,60,.32) 50% 100%);
+      background: linear-gradient(180deg, rgba(255,255,255,.86) 0 50%, rgba(220,20,60,.62) 50% 100%);
       transform: rotate(-18deg);
+    }
+
+    .wm-aside h2 {
+      color: var(--wm-white);
     }
 
     .wm-aside p {
@@ -481,6 +556,16 @@
       background: color-mix(in srgb, var(--wm-surface) 65%, transparent);
     }
 
+    @media (max-width: 991.98px) {
+      .wm-case-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .wm-case-kpi {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 767.98px) {
       .wm-hero {
         min-height: auto;
@@ -508,11 +593,13 @@
 
 <body>
   <div class="wm-topline py-2">
-    <div class="container wm-topline-inner rounded-3 px-3 py-2 d-flex flex-wrap justify-content-between gap-2">
+    <div class="container d-flex flex-wrap justify-content-between gap-2">
       <span>Centrum Usług Regulacyjnych i Delegowania Decyzyjnego</span>
       <span>Rzeczpospolita proceduralna. Sprawy szczególne. Tryby uzasadnione.</span>
     </div>
   </div>
+
+  <div class="wm-flag-strip" aria-hidden="true"></div>
 
   <nav class="navbar navbar-expand-lg sticky-top py-3">
     <div class="container">
@@ -537,6 +624,7 @@
         <ul class="navbar-nav ms-lg-auto align-items-lg-center gap-lg-2">
           <li class="nav-item"><a class="nav-link" href="#oferta">Zakres usług</a></li>
           <li class="nav-item"><a class="nav-link" href="#podstawa">Podstawa prawna</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
           <li class="nav-item"><a class="nav-link" href="#proces">Proces</a></li>
           <li class="nav-item"><a class="nav-link" href="#wniosek">Wniosek</a></li>
           <li class="nav-item ms-lg-2">
@@ -595,7 +683,7 @@
         <div class="col-lg-5">
           <aside class="wm-hero-panel">
             <div class="wm-status-head p-4">
-              <h2 class="h5 mb-1">Panel dostępności decyzyjnej</h2>
+              <h2 class="h5 mb-1 text-white">Panel dostępności decyzyjnej</h2>
               <p class="mb-0 opacity-75">Aktualizacja: po ostatnim posiedzeniu, przed pierwszym pytaniem.</p>
             </div>
 
@@ -817,6 +905,222 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="py-5">
+      <div class="container">
+        <div class="row align-items-end g-4 mb-4">
+          <div class="col-lg-6">
+            <h2 class="wm-section-title display-6 fw-bold mb-0">
+              Wybrane rekonstrukcje kampanii regulacyjnych
+            </h2>
+          </div>
+
+          <div class="col-lg-6">
+            <p class="wm-muted mb-0">
+              Poniższe opisy stanowią demonstracyjne studia przypadku oparte na publicznie
+              znanych sporach legislacyjnych. W naszym modelu szkoleniowym traktujemy je jako
+              przykłady dojrzałego zarządzania kontrowersją: najpierw pojawia się projekt,
+              później oburzenie, następnie korekta komunikatu, a na końcu wszyscy wyjaśniają,
+              że od początku chodziło o coś innego.
+            </p>
+          </div>
+        </div>
+
+        <div class="wm-portfolio-note p-4 mb-4">
+          <strong class="d-block mb-2" style="color: var(--wm-heading);">
+            Nota metodologiczna Departamentu Sukcesu Publicznego
+          </strong>
+          <p class="mb-0">
+            Centrum nie potwierdza, nie zaprzecza i nie pamięta udziału w poniższych sprawach.
+            Zwraca jednak uwagę, że każda z nich zawierała elementy właściwe dla profesjonalnej
+            obsługi wpływu: wysoką polaryzację, niedoszacowanie reakcji społecznej, pośpiech
+            proceduralny, nadmiar uzasadnień oraz ten szczególny moment, w którym rzecznik
+            zaczyna mówić wolniej.
+          </p>
+        </div>
+
+        <div class="wm-case-grid">
+          <article class="wm-card wm-case p-4">
+            <div class="wm-case-body">
+              <span class="wm-case-label">model: komisja jako produkt</span>
+              <h3 class="h4">Kampania „Komisja, która wie, kogo ma szukać”</h3>
+
+              <p class="wm-muted">
+                Projekt demonstracyjny pokazujący, jak stworzyć organ publiczny o nazwie
+                technicznej, funkcji politycznej i atmosferze procesu, który jeszcze nie
+                potrzebuje wyroku, bo sama procedura generuje wystarczającą ilość skutków.
+              </p>
+
+              <p class="wm-muted">
+                W wariancie premium komisja otrzymuje zakres historyczny, kompetencje
+                miękko represyjne oraz medialną nazwę własną. Dzięki temu obywatele nie muszą
+                znać treści ustawy, ponieważ wystarczy, że znają pseudonim.
+              </p>
+
+              <div class="wm-case-kpi">
+                <div><strong>Rezultat</strong><span>maksymalna widoczność</span></div>
+                <div><strong>Ryzyko</strong><span>konstytucyjne</span></div>
+                <div><strong>Reakcja</strong><span>marsze, opinie, nerwy</span></div>
+              </div>
+
+              <div class="wm-case-meta">
+                Inspiracja publiczna: spór wokół tzw. „lex Tusk” i komisji ds. badania wpływów rosyjskich.
+              </div>
+            </div>
+          </article>
+
+          <article class="wm-card wm-case p-4">
+            <div class="wm-case-body">
+              <span class="wm-case-label">model: pluralizm przez eliminację</span>
+              <h3 class="h4">Kampania „Rynek mediów będzie wolny, kiedy zostanie właściwie zawężony”</h3>
+
+              <p class="wm-muted">
+                Studium przypadku z zakresu regulacji medialnej, w którym hasła o porządkowaniu
+                rynku, repolonizacji i bezpieczeństwie informacyjnym zostają ułożone w taki
+                sposób, aby każdy wiedział, o kogo chodzi, ale dokument nadal mógł udawać,
+                że chodzi o wszystkich.
+              </p>
+
+              <p class="wm-muted">
+                Szczególnie skuteczny moduł w sytuacjach, gdy projekt wymaga jednoczesnego
+                przekonywania opinii publicznej, partnerów zagranicznych i własnego zaplecza,
+                że ograniczanie konkretnego medium jest w istocie ćwiczeniem z neutralności.
+              </p>
+
+              <div class="wm-case-kpi">
+                <div><strong>Rezultat</strong><span>weto końcowe</span></div>
+                <div><strong>Ryzyko</strong><span>dyplomatyczne</span></div>
+                <div><strong>Reakcja</strong><span>protesty i alerty</span></div>
+              </div>
+
+              <div class="wm-case-meta">
+                Inspiracja publiczna: spór wokół tzw. „lex TVN” i nowelizacji ustawy medialnej.
+              </div>
+            </div>
+          </article>
+
+          <article class="wm-card wm-case p-4">
+            <div class="wm-case-body">
+              <span class="wm-case-label">model: szkoła pod nadzorem</span>
+              <h3 class="h4">Kampania „Centralizacja troski o dzieci”</h3>
+
+              <p class="wm-muted">
+                Rozwiązanie edukacyjne przeznaczone dla administracji, która uważa,
+                że szkoła jest zbyt lokalna, rodzice zbyt różnorodni, dyrektorzy zbyt samodzielni,
+                a organizacje społeczne zbyt obecne, aby pozostawić sprawę bez dodatkowego
+                szczebla kontroli.
+              </p>
+
+              <p class="wm-muted">
+                Moduł zapewnia narrację o ochronie uczniów, nawet wtedy, gdy uczniowie,
+                nauczyciele, samorządy i znaczna część opinii publicznej pytają, przed czym
+                dokładnie są chronieni.
+              </p>
+
+              <div class="wm-case-kpi">
+                <div><strong>Rezultat</strong><span>weto i powrót</span></div>
+                <div><strong>Ryzyko</strong><span>oświatowe</span></div>
+                <div><strong>Reakcja</strong><span>protest środowisk</span></div>
+              </div>
+
+              <div class="wm-case-meta">
+                Inspiracja publiczna: spory wokół tzw. „lex Czarnek” i zmian w prawie oświatowym.
+              </div>
+            </div>
+          </article>
+
+          <article class="wm-card wm-case p-4">
+            <div class="wm-case-body">
+              <span class="wm-case-label">model: wiatr w pakiecie z rachunkiem</span>
+              <h3 class="h4">Kampania „Transformacja energetyczna z dołączonym zaskoczeniem”</h3>
+
+              <p class="wm-muted">
+                Projekt pokazujący, jak połączyć społecznie akceptowalny cel, czyli tańszą
+                energię i zieloną transformację, z zapisami, które sprawiają, że dyskusja
+                bardzo szybko przestaje dotyczyć energii, a zaczyna dotyczyć odległości,
+                map, własności i podejrzenia, że ktoś czytał projekt zbyt późno.
+              </p>
+
+              <p class="wm-muted">
+                Kampania rekomendowana dla klientów, którzy chcą zmieniać rzeczywistość
+                infrastrukturalną szybko, ale niekoniecznie w warunkach, w których obywatele
+                mają czas dokładnie sprawdzić, jak blisko ich domu kończy się strategia.
+              </p>
+
+              <div class="wm-case-kpi">
+                <div><strong>Rezultat</strong><span>burza proceduralna</span></div>
+                <div><strong>Ryzyko</strong><span>własnościowe</span></div>
+                <div><strong>Reakcja</strong><span>awaria komunikacji</span></div>
+              </div>
+
+              <div class="wm-case-meta">
+                Inspiracja publiczna: kontrowersje wokół projektu zmian dotyczących energetyki wiatrowej z 2023 r.
+              </div>
+            </div>
+          </article>
+
+          <article class="wm-card wm-case p-4">
+            <div class="wm-case-body">
+              <span class="wm-case-label">model: wolność przez paragraf</span>
+              <h3 class="h4">Kampania „Rozszerzamy ochronę, aż zacznie się spór o cenzurę”</h3>
+
+              <p class="wm-muted">
+                Moduł przeznaczony dla projektów, które z jednej strony mają bardzo łatwy
+                do obrony cel publiczny, czyli ochronę grup narażonych na przemoc i nienawiść,
+                a z drugiej uruchamiają natychmiastową kontrnarrację o wolności słowa,
+                kneblowaniu debaty i karaniu za poglądy.
+              </p>
+
+              <p class="wm-muted">
+                Szczególną zaletą tego typu kampanii jest możliwość prowadzenia dwóch równoległych
+                rozmów, w których jedna strona mówi o bezpieczeństwie ludzi, a druga o bezpieczeństwie
+                języka. Obie strony są wtedy przekonane, że przeciwnik celowo nie rozumie tematu.
+              </p>
+
+              <div class="wm-case-kpi">
+                <div><strong>Rezultat</strong><span>spór aksjologiczny</span></div>
+                <div><strong>Ryzyko</strong><span>wolnościowe</span></div>
+                <div><strong>Reakcja</strong><span>dwie Polski online</span></div>
+              </div>
+
+              <div class="wm-case-meta">
+                Inspiracja publiczna: projekty rozszerzenia ochrony karnej przed mową nienawiści.
+              </div>
+            </div>
+          </article>
+
+          <article class="wm-card wm-case p-4">
+            <div class="wm-case-body">
+              <span class="wm-case-label">model: większość sumienia</span>
+              <h3 class="h4">Kampania „Zmiana prawa, która przegrywa o kilka sumień”</h3>
+
+              <p class="wm-muted">
+                Przykład projektu, w którym deklarowana modernizacja prawa spotyka się
+                z arytmetyką koalicyjną, światopoglądem, nieobecnościami oraz tym specyficznym
+                rodzajem dyscypliny partyjnej, która kończy się dokładnie wtedy, gdy zaczyna
+                być potrzebna.
+              </p>
+
+              <p class="wm-muted">
+                Kampania szczególnie przydatna do testowania granic między obietnicą wyborczą,
+                realną większością parlamentarną i przekonaniem, że sprawy światopoglądowe
+                można przeprowadzić samym komunikatem o determinacji.
+              </p>
+
+              <div class="wm-case-kpi">
+                <div><strong>Rezultat</strong><span>głosowanie graniczne</span></div>
+                <div><strong>Ryzyko</strong><span>koalicyjne</span></div>
+                <div><strong>Reakcja</strong><span>gniew własnych wyborców</span></div>
+              </div>
+
+              <div class="wm-case-meta">
+                Inspiracja publiczna: parlamentarne spory wokół dekryminalizacji pomocy w aborcji i liberalizacji prawa aborcyjnego.
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
