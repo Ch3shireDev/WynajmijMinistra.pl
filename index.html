@@ -1,0 +1,1019 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WynajmijMinistra.pl — Usługi dostępu regulacyjnego</title>
+
+  <style>
+    :root {
+      --bg: #f4f1ea;
+      --paper: #ffffff;
+      --ink: #1c1b18;
+      --muted: #6f6a61;
+      --line: #d8d1c4;
+      --navy: #182233;
+      --blue: #263d63;
+      --gold: #b9974f;
+      --green: #2f6b4f;
+      --red: #9e3d35;
+      --radius: 18px;
+      --max: 1180px;
+      --shadow: 0 20px 50px rgba(28, 27, 24, .10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(185, 151, 79, .18), transparent 30rem),
+        linear-gradient(180deg, #f7f4ee, var(--bg));
+      line-height: 1.56;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topline {
+      background: var(--navy);
+      color: rgba(255,255,255,.82);
+      font-size: .86rem;
+      padding: 9px 22px;
+    }
+
+    .topline-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    header {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 26px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      font-weight: 850;
+      letter-spacing: -.035em;
+      font-size: 1.28rem;
+    }
+
+    .logo-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--navy);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 950;
+      box-shadow: var(--shadow);
+    }
+
+    nav {
+      display: flex;
+      gap: 19px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    nav a:hover {
+      color: var(--ink);
+    }
+
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 68px 22px 54px;
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.72);
+      color: var(--muted);
+      font-size: .9rem;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow strong {
+      color: var(--green);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.45rem, 5.6vw, 5.7rem);
+      line-height: .96;
+      letter-spacing: -.075em;
+      color: var(--navy);
+    }
+
+    .lead {
+      margin: 25px 0 0;
+      font-size: 1.13rem;
+      color: #514d46;
+      max-width: 760px;
+    }
+
+    .lead strong {
+      color: var(--ink);
+    }
+
+    .actions {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 14px 20px;
+      font-weight: 750;
+      border: 1px solid var(--line);
+      cursor: default;
+      user-select: none;
+    }
+
+    .btn.primary {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+    }
+
+    .btn.secondary {
+      background: rgba(255,255,255,.78);
+      color: var(--navy);
+    }
+
+    .status-card {
+      background: rgba(255,255,255,.86);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .status-head {
+      background: var(--navy);
+      color: #fff;
+      padding: 18px 22px;
+    }
+
+    .status-head h2 {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: -.015em;
+    }
+
+    .status-head p {
+      margin: 5px 0 0;
+      color: rgba(255,255,255,.72);
+      font-size: .92rem;
+    }
+
+    .status-body {
+      padding: 22px;
+    }
+
+    .status-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .status-row:last-child {
+      border-bottom: 0;
+    }
+
+    .status-row strong {
+      color: var(--ink);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .legal-note {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 13px;
+      background: #f4efe2;
+      border: 1px solid #e0d5bb;
+      color: #5c5140;
+      font-size: .92rem;
+    }
+
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 22px 78px;
+    }
+
+    section {
+      margin-top: 56px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 28px;
+      margin-bottom: 22px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.04;
+      letter-spacing: -.055em;
+      color: var(--navy);
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 590px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+    }
+
+    .card {
+      background: rgba(255,255,255,.88);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 16px 36px rgba(28, 27, 24, .07);
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #efe6d1;
+      color: #745d27;
+      font-size: .81rem;
+      font-weight: 750;
+      margin-bottom: 13px;
+    }
+
+    .card h3 {
+      margin: 0 0 11px;
+      font-size: 1.24rem;
+      line-height: 1.18;
+      color: var(--navy);
+      letter-spacing: -.035em;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+    }
+
+    .price {
+      margin: 17px 0 14px;
+      font-size: 1.55rem;
+      font-weight: 850;
+      color: var(--blue);
+      letter-spacing: -.045em;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 14px 0 0;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .step {
+      background: rgba(255,255,255,.88);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      min-height: 188px;
+    }
+
+    .step span {
+      display: inline-grid;
+      place-items: center;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: white;
+      font-weight: 850;
+      margin-bottom: 14px;
+    }
+
+    .step h3 {
+      margin: 0 0 9px;
+      color: var(--navy);
+      font-size: 1.06rem;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    .institutional {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .document {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .document h3 {
+      margin: 0 0 10px;
+      color: var(--navy);
+      font-size: 1.4rem;
+      letter-spacing: -.04em;
+    }
+
+    .document p {
+      color: var(--muted);
+    }
+
+    .quote {
+      border-left: 4px solid var(--gold);
+      padding-left: 18px;
+      color: #4f493f;
+      font-size: 1.05rem;
+    }
+
+    .table {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(28, 27, 24, .07);
+    }
+
+    .table-row {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .table-row:last-child {
+      border-bottom: 0;
+    }
+
+    .table-row div {
+      padding: 15px 18px;
+    }
+
+    .table-row div:first-child {
+      background: #f8f5ee;
+      color: var(--navy);
+      font-weight: 750;
+    }
+
+    .table-row div:last-child {
+      color: var(--muted);
+    }
+
+    .form-wrap {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .aside-copy {
+      background: var(--navy);
+      color: white;
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .aside-copy h2 {
+      margin: 0 0 14px;
+      font-size: 1.75rem;
+      line-height: 1.08;
+      letter-spacing: -.05em;
+    }
+
+    .aside-copy p {
+      color: rgba(255,255,255,.76);
+    }
+
+    .aside-copy .small {
+      margin-top: 18px;
+      font-size: .91rem;
+      color: rgba(255,255,255,.58);
+    }
+
+    form {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 25px;
+      box-shadow: 0 16px 36px rgba(28, 27, 24, .07);
+    }
+
+    label {
+      display: block;
+      font-weight: 750;
+      color: var(--navy);
+      margin-bottom: 7px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fbfaf7;
+      color: var(--ink);
+      padding: 12px 13px;
+      margin-bottom: 16px;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 126px;
+      resize: vertical;
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: .88rem;
+      margin: -8px 0 16px;
+    }
+
+    button {
+      width: 100%;
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 18px;
+      background: #bfc5cf;
+      color: #5c6470;
+      font: inherit;
+      font-weight: 800;
+      cursor: not-allowed;
+    }
+
+    .press {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 17px;
+    }
+
+    .press-card {
+      background: rgba(255,255,255,.86);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 23px;
+    }
+
+    .press-card small {
+      color: var(--gold);
+      font-weight: 850;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .press-card h3 {
+      margin: 10px 0 0;
+      color: var(--navy);
+      font-size: 1.28rem;
+      line-height: 1.2;
+      letter-spacing: -.035em;
+    }
+
+    .press-card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 22px 42px;
+      color: var(--muted);
+      font-size: .88rem;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 930px) {
+      header,
+      .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        flex-wrap: wrap;
+      }
+
+      .hero,
+      .institutional,
+      .form-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .grid,
+      .process,
+      .press {
+        grid-template-columns: 1fr;
+      }
+
+      .table-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topline">
+    <div class="topline-inner">
+      <span>Centrum Usług Regulacyjnych i Delegowania Decyzyjnego</span>
+      <span>Obsługa podmiotów strategicznych, szczególnych oraz odpowiednio uzasadnionych</span>
+    </div>
+  </div>
+
+  <header>
+    <a class="logo" href="#">
+      <span class="logo-mark">WM</span>
+      <span>WynajmijMinistra.pl</span>
+    </a>
+
+    <nav>
+      <a href="#oferta">Zakres usług</a>
+      <a href="#podstawa">Podstawa prawna</a>
+      <a href="#proces">Proces</a>
+      <a href="#wniosek">Wniosek</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="eyebrow">
+        <strong>Status:</strong> nabór wniosków w trybie kwartalnym
+      </div>
+
+      <h1>Dostęp do ministra bez konieczności posiadania państwa.</h1>
+
+      <p class="lead">
+        WynajmijMinistra.pl to wyspecjalizowana platforma obsługi wpływu instytucjonalnego,
+        przeznaczona dla podmiotów, które identyfikują potrzebę zmiany prawa, ale nie chcą
+        ograniczać się do tradycyjnych, powolnych i społecznie męczących metod, takich jak
+        konsultacje, przekonywanie obywateli lub posiadanie racji.
+      </p>
+
+      <p class="lead">
+        W ramach usługi zapewniamy czasową alokację właściwego przedstawiciela administracji
+        rządowej do obsługi procesu legislacyjnego, komunikacyjnego lub wyjaśniającego,
+        z zachowaniem pozorów neutralności, proporcjonalności oraz troski o interes publiczny.
+      </p>
+
+      <div class="actions">
+        <span class="btn primary">Rozpocznij kwalifikację sprawy</span>
+        <span class="btn secondary">Pobierz katalog dostępnych resortów</span>
+      </div>
+    </div>
+
+    <aside class="status-card">
+      <div class="status-head">
+        <h2>Panel dostępności decyzyjnej</h2>
+        <p>Aktualizacja: po ostatnim posiedzeniu, przed pierwszym pytaniem.</p>
+      </div>
+
+      <div class="status-body">
+        <div class="status-row">
+          <span>Minister do spraw pilnych</span>
+          <strong>dostępny po 22:00</strong>
+        </div>
+
+        <div class="status-row">
+          <span>Minister od wyjaśniania zakupów</span>
+          <strong>czasowo przeciążony</strong>
+        </div>
+
+        <div class="status-row">
+          <span>Minister od funduszy celowych</span>
+          <strong>dostępny przez fundację</strong>
+        </div>
+
+        <div class="status-row">
+          <span>Minister od deregulacji znajomych</span>
+          <strong>rezerwacja warunkowa</strong>
+        </div>
+
+        <div class="status-row">
+          <span>Pakiet „nie pamiętam spotkania”</span>
+          <strong>w cenie premium</strong>
+        </div>
+
+        <div class="legal-note">
+          Usługa realizowana jest w oparciu o przepisy Ustawy z dnia 1 kwietnia 2026 r.
+          o czasowym udostępnianiu funkcji publicznych do celów szczególnie uzasadnionych
+          gospodarczo, społecznie lub towarzysko, Dz.U. 2026 poz. 404.
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <main>
+    <section id="oferta">
+      <div class="section-head">
+        <h2>Zakres usług regulacyjnych</h2>
+        <p>
+          Każdy pakiet został zaprojektowany tak, aby możliwie płynnie przeprowadzić klienta
+          od prywatnego interesu do publicznego uzasadnienia, z minimalnym tarciem medialnym
+          i maksymalną elastycznością interpretacyjną.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="tag">pakiet legislacyjny</div>
+          <h3>Minister „Projekt był długo analizowany”</h3>
+          <p>
+            Rekomendowany przy sprawach, które powstały nagle, ale wymagają historii
+            instytucjonalnej dłuższej niż ostatni weekend.
+          </p>
+
+          <div class="price">od 1 uzasadnienia ogólnego</div>
+
+          <ul>
+            <li>opracowanie narracji o wieloletnich pracach koncepcyjnych,</li>
+            <li>wskazanie nieistniejącej potrzeby systemowej w języku możliwym do zacytowania,</li>
+            <li>przygotowanie odpowiedzi na pytanie, dlaczego nikt wcześniej o tym nie słyszał.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="tag">pakiet pilny</div>
+          <h3>Minister „Nie można było czekać”</h3>
+          <p>
+            Dla projektów wymagających natychmiastowego procedowania, szczególnie wtedy,
+            gdy spokojna analiza mogłaby ujawnić, że pośpiech jest jedynym argumentem.
+          </p>
+
+          <div class="price">tryb nocny + korekta</div>
+
+          <ul>
+            <li>uruchomienie ścieżki przyspieszonej bez zbędnej widoczności,</li>
+            <li>koordynacja wypowiedzi o odpowiedzialności państwa,</li>
+            <li>obsługa komunikatu „działaliśmy pod presją okoliczności”.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="tag">pakiet dotacyjny</div>
+          <h3>Minister „To nie był luksus, tylko odporność”</h3>
+          <p>
+            Przeznaczony dla przedsięwzięć, które na poziomie faktury wyglądają jak zakup,
+            ale na poziomie prezentacji stają się elementem odbudowy, innowacji lub lokalnej
+            transformacji.
+          </p>
+
+          <div class="price">grant + korekta opisu</div>
+
+          <ul>
+            <li>przekład potrzeb konsumpcyjnych na język celów rozwojowych,</li>
+            <li>opracowanie rubryki „wpływ społeczny” dla rzeczy, które głównie stoją, pływają albo błyszczą,</li>
+            <li>moduł reakcji kryzysowej po publikacji mapy beneficjentów.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="tag">pakiet kompetencyjny</div>
+          <h3>Minister „Kwalifikacje zostały uzupełnione”</h3>
+          <p>
+            Dla klientów, którzy muszą wykazać formalne przygotowanie do funkcji publicznej,
+            nadzorczej lub doradczej, ale nie chcą, aby edukacja przeszkadzała im w karierze.
+          </p>
+
+          <div class="price">dyplom, pieczęć, dyskrecja</div>
+
+          <ul>
+            <li>narracja o podnoszeniu kwalifikacji w warunkach intensywnej aktywności zawodowej,</li>
+            <li>opracowanie biogramu, w którym daty zachowują się uprzejmie,</li>
+            <li>wariant rozszerzony: „nie miałem wpływu na renomę uczelni”.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="tag">pakiet bezpieczeństwa</div>
+          <h3>Minister „Nie możemy ujawnić szczegółów”</h3>
+          <p>
+            Najlepszy wybór dla działań, których nie da się przekonująco obronić jawnością,
+            ale można je tymczasowo przykryć słowami o bezpieczeństwie, suwerenności
+            i wrażliwości operacyjnej.
+          </p>
+
+          <div class="price">tajemnica + trzy akapity</div>
+
+          <ul>
+            <li>klasyfikacja problemu jako zbyt delikatnego na prostą odpowiedź,</li>
+            <li>komunikacja z użyciem słów, które kończą rozmowę zamiast ją zaczynać,</li>
+            <li>obsługa formuły „odpowiemy w trybie niejawnym”.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="tag">pakiet zakupowy</div>
+          <h3>Minister „Cena wynikała z sytuacji”</h3>
+          <p>
+            Dla zamówień, w których cena, dostawca i termin realizacji tworzą układ
+            wymagający dużej dojrzałości komunikacyjnej oraz ograniczonego dostępu
+            do dokumentów źródłowych.
+          </p>
+
+          <div class="price">procedura nadzwyczajna</div>
+
+          <ul>
+            <li>uzasadnienie zakupu w formule kryzysowej, nawet po ustaniu kryzysu,</li>
+            <li>przeniesienie akcentu z ceny na intencję,</li>
+            <li>przygotowanie wyjaśnienia, że rynek był trudny, a decyzje odpowiedzialne.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="podstawa" class="institutional">
+      <div class="document">
+        <h3>Podstawa formalna świadczenia usług</h3>
+
+        <p>
+          Platforma działa w modelu dostępu regulacyjnego, zgodnie z założeniami
+          Ustawy z dnia 1 kwietnia 2026 r. o czasowym udostępnianiu funkcji publicznych
+          do celów szczególnie uzasadnionych gospodarczo, społecznie lub towarzysko,
+          zwanej dalej „Ustawą o Operacyjnej Dostępności Ministrów”.
+        </p>
+
+        <p class="quote">
+          Art. 7 ust. 3: Czasowe udostępnienie osoby funkcyjnej może nastąpić,
+          jeżeli przemawia za tym ważny interes klienta, który po odpowiednim opracowaniu
+          może zostać przedstawiony jako ważny interes państwa.
+        </p>
+
+        <p>
+          Zgodnie z art. 13 ust. 2 tejże ustawy, minister udostępniony w trybie komercyjno-publicznym
+          zachowuje pozory niezależności, o ile klient nie żąda ich zniesienia wprost,
+          na piśmie albo w obecności osób trzecich posiadających telefony.
+        </p>
+      </div>
+
+      <div class="table">
+        <div class="table-row">
+          <div>Tryb zwykły</div>
+          <div>Sprawy wymagające jednej wypowiedzi, dwóch spotkań i późniejszego stwierdzenia, że żadnych ustaleń nie było.</div>
+        </div>
+
+        <div class="table-row">
+          <div>Tryb pilny</div>
+          <div>Sprawy wymagające procedowania przed pojawieniem się analizy, opinii publicznej lub zdrowego rozsądku.</div>
+        </div>
+
+        <div class="table-row">
+          <div>Tryb szczególny</div>
+          <div>Sprawy, w których ujawnienie szczegółów mogłoby zaszkodzić sprawie, stronie, ministrowi albo narracji.</div>
+        </div>
+
+        <div class="table-row">
+          <div>Tryb naprawczy</div>
+          <div>Sprawy po publikacji medialnej, kontroli, wycieku dokumentów albo wypowiedzi osoby, której nie udało się skoordynować.</div>
+        </div>
+
+        <div class="table-row">
+          <div>Tryb audytowy</div>
+          <div>Sprawy wymagające przesunięcia odpowiedzi na czas, w którym odbiorcy będą już zmęczeni szczegółami.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proces">
+      <div class="section-head">
+        <h2>Proces obsługi</h2>
+        <p>
+          Model realizacji opiera się na czterech etapach, których nazwy dobrano tak,
+          aby mogły występować zarówno w ofercie doradczej, jak i w protokole z kontroli.
+        </p>
+      </div>
+
+      <div class="process">
+        <div class="step">
+          <span>1</span>
+          <h3>Identyfikacja potrzeby</h3>
+          <p>
+            Klient opisuje oczekiwany rezultat. Zespół analityczny ustala, czy rezultat
+            należy nazwać reformą, korektą, deregulacją, programem wsparcia czy działaniem osłonowym.
+          </p>
+        </div>
+
+        <div class="step">
+          <span>2</span>
+          <h3>Dobór osoby funkcyjnej</h3>
+          <p>
+            Na podstawie zakresu sprawy wybierany jest minister o odpowiedniej dostępności,
+            odporności medialnej i zdolności do wypowiedzenia słowa „transparentność”
+            bez zauważalnej zmiany mimiki.
+          </p>
+        </div>
+
+        <div class="step">
+          <span>3</span>
+          <h3>Opracowanie uzasadnienia</h3>
+          <p>
+            Prywatny interes zostaje przepisany na język dobra wspólnego, a następnie
+            wzbogacony o bezpieczeństwo, rozwój, innowacyjność lub troskę o rodziny,
+            zależnie od aktualnej pogody komunikacyjnej.
+          </p>
+        </div>
+
+        <div class="step">
+          <span>4</span>
+          <h3>Stabilizacja narracji</h3>
+          <p>
+            Po wdrożeniu zapewniamy pakiet odpowiedzi na pytania, które nie powinny paść,
+            oraz zestaw sformułowań pozwalających wyjaśnić, że sprawa jest złożona,
+            chociaż wcześniej była oczywista.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="press">
+      <article class="press-card">
+        <small>komunikat branżowy</small>
+        <h3>Rośnie popyt na ministrów średniego szczebla. Klienci cenią ich za niższą rozpoznawalność i wyższą dyspozycyjność.</h3>
+        <p>
+          Według niepublikowanego raportu Centrum, szczególnym zainteresowaniem cieszą się osoby,
+          które są wystarczająco ważne, aby podpisać dokument, ale niewystarczająco znane,
+          aby pojawiać się w memach przed końcem tygodnia.
+        </p>
+      </article>
+
+      <article class="press-card">
+        <small>analiza rynku</small>
+        <h3>Eksperci wskazują, że przejrzystość procesu pozostaje kluczowa, o ile nie utrudnia procesu.</h3>
+        <p>
+          W praktyce oznacza to model, w którym dokumenty są dostępne, lecz niekoniecznie odnajdywalne,
+          uzasadnienia obszerne, lecz niekoniecznie informacyjne, a odpowiedzialność obecna,
+          lecz rozproszona w sposób instytucjonalnie elegancki.
+        </p>
+      </article>
+
+      <article class="press-card">
+        <small>standard obsługi</small>
+        <h3>Nowy moduł „nie znam szczegółów” skraca czas reakcji kryzysowej o 47 procent.</h3>
+        <p>
+          Rozwiązanie pozwala osobom funkcyjnym utrzymać kontakt z mediami bez konieczności
+          utrzymywania kontaktu z treścią sprawy, co znacząco poprawia komfort wypowiedzi.
+        </p>
+      </article>
+
+      <article class="press-card">
+        <small>compliance</small>
+        <h3>Audyt wewnętrzny potwierdził, że nie wykryto nieprawidłowości w dokumentach, których nie przekazano audytowi.</h3>
+        <p>
+          Centrum podkreśla, że metodologia badania była spójna z zakresem dostępnego materiału,
+          a zakres dostępnego materiału był spójny z oczekiwaniem, aby wynik nie zaskoczył interesariuszy.
+        </p>
+      </article>
+    </section>
+
+    <section id="wniosek" class="form-wrap">
+      <div class="aside-copy">
+        <h2>Wniosek o czasową alokację ministra</h2>
+
+        <p>
+          Formularz kwalifikacyjny pozwala określić, czy dana sprawa wymaga ministra,
+          wiceministra, pełnomocnika, rzecznika, komisji, audytu albo wyłącznie
+          dobrze napisanego komunikatu, że państwo traktuje temat poważnie.
+        </p>
+
+        <p>
+          W przypadku spraw o podwyższonym ryzyku medialnym rekomendujemy zaznaczenie
+          wariantu „interes strategiczny”, ponieważ jest to pojęcie pojemne, poważne
+          i zwykle niepotrzebnie niepokojące dla osób zadających pytania.
+        </p>
+
+        <p class="small">
+          System demonstracyjny. Formularz nie zapisuje danych i nie przekazuje ich dalej.
+          To właściwie jedyna część procesu, która jest w pełni transparentna.
+        </p>
+      </div>
+
+      <form onsubmit="return false;">
+        <label for="nazwa">Nazwa sprawy</label>
+        <input id="nazwa" placeholder="Np. Program Stabilizacji Otoczenia Regulacyjnego Wybranych Podmiotów" />
+
+        <label for="minister">Preferowany profil osoby funkcyjnej</label>
+        <select id="minister">
+          <option>Minister z pełną zdolnością do mówienia ogólnikami</option>
+          <option>Minister techniczny, mało medialny, podpisujący</option>
+          <option>Minister polityczny, odporny na pytania uzupełniające</option>
+          <option>Wiceminister do zadań, których nie chce firmować minister</option>
+          <option>Pełnomocnik rządu do spraw, które brzmią lepiej niż wyglądają</option>
+        </select>
+
+        <label for="interes">Opis interesu klienta</label>
+        <textarea
+          id="interes"
+          placeholder="Proszę opisać oczekiwany rezultat możliwie prywatnie. Na etapie drugim zostanie on przepisany na język publiczny."
+        ></textarea>
+
+        <label for="uzasadnienie">Preferowane uzasadnienie publiczne</label>
+        <select id="uzasadnienie">
+          <option>Bezpieczeństwo państwa</option>
+          <option>Rozwój innowacyjnej gospodarki</option>
+          <option>Wzmocnienie odporności społecznej</option>
+          <option>Dobro rodzin i lokalnych wspólnot</option>
+          <option>Dostosowanie do standardów europejskich, ale selektywnie</option>
+          <option>Usunięcie barier administracyjnych dla podmiotów gotowych</option>
+        </select>
+
+        <label for="ryzyko">Znane ryzyka komunikacyjne</label>
+        <textarea
+          id="ryzyko"
+          placeholder="Np. istnieją faktury, daty nie układają się elegancko, ktoś był na spotkaniu, ktoś ma maile, dziennikarz pytał już dwa razy."
+        ></textarea>
+
+        <label for="tryb">Oczekiwany tryb realizacji</label>
+        <select id="tryb">
+          <option>Zwykły — sprawa może udawać normalną</option>
+          <option>Pilny — sprawa nie powinna być czytana zbyt długo</option>
+          <option>Szczególny — szczegóły utrudniają odbiór całości</option>
+          <option>Naprawczy — materiał prasowy już istnieje</option>
+          <option>Audytowy — odpowiedzi należy udzielić w przyszłości</option>
+        </select>
+
+        <p class="hint">
+          Przesłanie wniosku w wersji demonstracyjnej jest niedostępne do czasu zakończenia
+          konsultacji z Departamentem Wygodnych Przypadków.
+        </p>
+
+        <button disabled>Przekaż do wstępnej oceny politycznej</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 WynajmijMinistra.pl — demonstracyjna platforma satyryczna.</span>
+    <span>Nie jesteśmy organem administracji publicznej, co w obecnych warunkach uznajemy za informację uspokajającą.</span>
+  </footer>
+</body>
+</html>
