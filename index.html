@@ -13,78 +13,91 @@
   <style>
     :root,
     [data-bs-theme="light"] {
-      --wm-bg: #f5f2ea;
+      --wm-bg: #f5f1e8;
       --wm-surface: #ffffff;
-      --wm-surface-soft: #f8f5ee;
+      --wm-surface-soft: #f8f4ec;
       --wm-text: #171717;
-      --wm-muted: #4f4a43;
-      --wm-muted-2: #6c655b;
-      --wm-border: #cfc6b7;
-      --wm-navy: #162338;
-      --wm-navy-2: #213657;
+      --wm-muted: #514b43;
+      --wm-muted-2: #71685e;
+      --wm-border: #cdc2b0;
+      --wm-navy: #15243b;
+      --wm-navy-2: #213b64;
+      --wm-red: #b3262f;
+      --wm-red-2: #d7353f;
       --wm-gold: #9b7933;
       --wm-gold-soft: #eadbb9;
       --wm-green: #28664b;
-      --wm-danger: #914039;
-      --wm-shadow: 0 20px 55px rgba(25, 24, 22, .12);
-      --wm-hero-gradient:
-        radial-gradient(circle at 12% 0%, rgba(155, 121, 51, .18), transparent 32rem),
-        radial-gradient(circle at 90% 10%, rgba(33, 54, 87, .10), transparent 31rem),
-        linear-gradient(180deg, #fbf8f1, #f5f2ea);
+      --wm-shadow: 0 22px 60px rgba(24, 23, 20, .14);
+      --wm-glass: rgba(255, 255, 255, .82);
+      --wm-sejm-photo: url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Sejm_rp_front_20070103.jpg");
     }
 
     [data-bs-theme="dark"] {
-      --wm-bg: #0f1218;
-      --wm-surface: #181d27;
-      --wm-surface-soft: #202737;
-      --wm-text: #f5f1e8;
-      --wm-muted: #d0c8ba;
-      --wm-muted-2: #b6ad9d;
-      --wm-border: #3d4658;
-      --wm-navy: #d9c28a;
-      --wm-navy-2: #f0d897;
+      --wm-bg: #0d1118;
+      --wm-surface: #171d28;
+      --wm-surface-soft: #202838;
+      --wm-text: #f6f1e8;
+      --wm-muted: #d0c6b7;
+      --wm-muted-2: #b9ad9b;
+      --wm-border: #404a5d;
+      --wm-navy: #ead29a;
+      --wm-navy-2: #ffdf92;
+      --wm-red: #ff6470;
+      --wm-red-2: #d7434d;
       --wm-gold: #e0bf69;
-      --wm-gold-soft: #423822;
+      --wm-gold-soft: #433721;
       --wm-green: #91d2aa;
-      --wm-danger: #e1877c;
-      --wm-shadow: 0 20px 55px rgba(0, 0, 0, .42);
-      --wm-hero-gradient:
-        radial-gradient(circle at 12% 0%, rgba(224, 191, 105, .16), transparent 32rem),
-        radial-gradient(circle at 90% 10%, rgba(145, 210, 170, .09), transparent 31rem),
-        linear-gradient(180deg, #0f1218, #151a24);
+      --wm-shadow: 0 24px 70px rgba(0, 0, 0, .48);
+      --wm-glass: rgba(18, 24, 34, .84);
     }
 
     body {
-      background: var(--wm-hero-gradient);
+      background:
+        radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--wm-red) 18%, transparent), transparent 32rem),
+        radial-gradient(circle at 85% 8%, color-mix(in srgb, var(--wm-gold) 20%, transparent), transparent 34rem),
+        linear-gradient(180deg, var(--wm-bg), color-mix(in srgb, var(--wm-bg) 84%, #000 16%));
       color: var(--wm-text);
       line-height: 1.58;
     }
 
     .wm-topline {
-      background: #111827;
-      color: #f9fafb;
+      background:
+        linear-gradient(90deg, #ffffff 0 50%, #dc143c 50% 100%);
+      color: #111827;
       font-size: .9rem;
-    }
-
-    [data-bs-theme="dark"] .wm-topline {
-      background: #07090d;
       border-bottom: 1px solid var(--wm-border);
     }
 
-    .wm-logo-mark {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: var(--wm-navy);
-      color: var(--bs-body-bg);
-      font-weight: 900;
-      box-shadow: var(--wm-shadow);
+    [data-bs-theme="dark"] .wm-topline {
+      color: #f8f9fa;
+      background:
+        linear-gradient(90deg, #151a24 0 50%, #7d1821 50% 100%);
     }
 
-    [data-bs-theme="dark"] .wm-logo-mark {
+    .wm-topline-inner {
+      background: color-mix(in srgb, var(--wm-glass) 88%, transparent);
+      border-inline: 1px solid color-mix(in srgb, var(--wm-border) 70%, transparent);
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar {
+      background: color-mix(in srgb, var(--wm-glass) 88%, transparent);
+      border-bottom: 1px solid var(--wm-border);
+      backdrop-filter: blur(14px);
+    }
+
+    .wm-logo-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(180deg, #fff 0 49%, var(--wm-red) 49% 100%);
       color: #111827;
+      font-weight: 950;
+      box-shadow: var(--wm-shadow);
+      border: 1px solid color-mix(in srgb, var(--wm-border) 75%, transparent);
     }
 
     .wm-logo-text {
@@ -92,138 +105,14 @@
       letter-spacing: -.035em;
     }
 
-    .navbar {
-      background: transparent;
-    }
-
     .nav-link {
       color: var(--wm-muted-2);
-      font-weight: 600;
+      font-weight: 650;
     }
 
     .nav-link:hover,
     .nav-link:focus {
       color: var(--wm-text);
-    }
-
-    .wm-theme-toggle {
-      border-color: var(--wm-border);
-      color: var(--wm-text);
-      background: var(--wm-surface);
-    }
-
-    .wm-hero {
-      padding-block: clamp(3rem, 7vw, 6rem);
-    }
-
-    .wm-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .45rem .75rem;
-      border: 1px solid var(--wm-border);
-      border-radius: 999px;
-      background: color-mix(in srgb, var(--wm-surface) 88%, transparent);
-      color: var(--wm-muted);
-      font-weight: 650;
-      font-size: .94rem;
-    }
-
-    .wm-eyebrow strong {
-      color: var(--wm-green);
-    }
-
-    .wm-title {
-      color: var(--wm-navy);
-      font-size: clamp(2.55rem, 5.8vw, 5.8rem);
-      line-height: .96;
-      letter-spacing: -.075em;
-    }
-
-    .wm-lead {
-      color: var(--wm-muted);
-      font-size: 1.12rem;
-      max-width: 760px;
-    }
-
-    .wm-card {
-      background: color-mix(in srgb, var(--wm-surface) 94%, transparent);
-      border: 1px solid var(--wm-border);
-      border-radius: 1.25rem;
-      box-shadow: var(--wm-shadow);
-      color: var(--wm-text);
-    }
-
-    .wm-card-soft {
-      background: color-mix(in srgb, var(--wm-surface-soft) 96%, transparent);
-      border: 1px solid var(--wm-border);
-      border-radius: 1.25rem;
-      color: var(--wm-text);
-    }
-
-    .wm-status-head {
-      background: #111827;
-      color: #fff;
-      border-radius: 1.25rem 1.25rem 0 0;
-    }
-
-    [data-bs-theme="dark"] .wm-status-head {
-      background: #080a0f;
-      border-bottom: 1px solid var(--wm-border);
-    }
-
-    .wm-muted {
-      color: var(--wm-muted);
-    }
-
-    .wm-muted-2 {
-      color: var(--wm-muted-2);
-    }
-
-    .wm-section-title {
-      color: var(--wm-navy);
-      letter-spacing: -.055em;
-      line-height: 1.04;
-    }
-
-    .wm-tag {
-      display: inline-flex;
-      padding: .38rem .65rem;
-      border-radius: 999px;
-      background: var(--wm-gold-soft);
-      color: var(--wm-gold);
-      font-size: .82rem;
-      font-weight: 800;
-    }
-
-    [data-bs-theme="dark"] .wm-tag {
-      color: #ffe2a2;
-    }
-
-    .wm-price {
-      color: var(--wm-navy-2);
-      font-size: 1.5rem;
-      font-weight: 850;
-      letter-spacing: -.04em;
-    }
-
-    .wm-btn-primary {
-      --bs-btn-bg: #111827;
-      --bs-btn-border-color: #111827;
-      --bs-btn-hover-bg: #1f2937;
-      --bs-btn-hover-border-color: #1f2937;
-      --bs-btn-color: #fff;
-      --bs-btn-hover-color: #fff;
-      font-weight: 750;
-    }
-
-    [data-bs-theme="dark"] .wm-btn-primary {
-      --bs-btn-bg: #d9c28a;
-      --bs-btn-border-color: #d9c28a;
-      --bs-btn-hover-bg: #efd99b;
-      --bs-btn-hover-border-color: #efd99b;
-      --bs-btn-color: #111827;
-      --bs-btn-hover-color: #111827;
     }
 
     .wm-btn-outline {
@@ -234,6 +123,175 @@
       --bs-btn-hover-color: var(--wm-text);
       background: var(--wm-surface);
       font-weight: 750;
+    }
+
+    .wm-btn-primary {
+      --bs-btn-bg: #111827;
+      --bs-btn-border-color: #111827;
+      --bs-btn-hover-bg: #1f2937;
+      --bs-btn-hover-border-color: #1f2937;
+      --bs-btn-color: #fff;
+      --bs-btn-hover-color: #fff;
+      font-weight: 780;
+    }
+
+    [data-bs-theme="dark"] .wm-btn-primary {
+      --bs-btn-bg: var(--wm-gold);
+      --bs-btn-border-color: var(--wm-gold);
+      --bs-btn-hover-bg: #f4d995;
+      --bs-btn-hover-border-color: #f4d995;
+      --bs-btn-color: #111827;
+      --bs-btn-hover-color: #111827;
+    }
+
+    .wm-hero {
+      position: relative;
+      isolation: isolate;
+      min-height: 760px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--wm-border);
+    }
+
+    .wm-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      background-image: var(--wm-sejm-photo);
+      background-size: cover;
+      background-position: center;
+      filter: saturate(.85) contrast(1.05);
+      transform: scale(1.03);
+    }
+
+    .wm-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(90deg,
+          color-mix(in srgb, var(--wm-bg) 94%, transparent) 0%,
+          color-mix(in srgb, var(--wm-bg) 80%, transparent) 44%,
+          color-mix(in srgb, var(--wm-bg) 48%, transparent) 100%
+        ),
+        linear-gradient(180deg,
+          color-mix(in srgb, #fff 8%, transparent),
+          color-mix(in srgb, var(--wm-red) 14%, transparent)
+        );
+    }
+
+    [data-bs-theme="dark"] .wm-hero::after {
+      background:
+        linear-gradient(90deg,
+          rgba(13, 17, 24, .96) 0%,
+          rgba(13, 17, 24, .86) 48%,
+          rgba(13, 17, 24, .62) 100%
+        ),
+        linear-gradient(180deg,
+          rgba(0, 0, 0, .15),
+          rgba(125, 24, 33, .22)
+        );
+    }
+
+    .wm-patriotic-ribbon {
+      position: absolute;
+      inset: auto -12rem 4rem auto;
+      width: min(62vw, 780px);
+      height: 180px;
+      z-index: -1;
+      transform: rotate(-14deg);
+      opacity: .78;
+      background:
+        linear-gradient(180deg,
+          rgba(255, 255, 255, .82) 0 50%,
+          color-mix(in srgb, var(--wm-red) 78%, transparent) 50% 100%);
+      border: 1px solid color-mix(in srgb, var(--wm-border) 55%, transparent);
+      box-shadow: var(--wm-shadow);
+    }
+
+    .wm-eagle-watermark {
+      position: absolute;
+      right: clamp(1rem, 5vw, 6rem);
+      top: 12rem;
+      width: clamp(180px, 26vw, 360px);
+      height: clamp(180px, 26vw, 360px);
+      z-index: -1;
+      opacity: .09;
+      color: var(--wm-red);
+      pointer-events: none;
+    }
+
+    [data-bs-theme="dark"] .wm-eagle-watermark {
+      opacity: .13;
+      color: #ffffff;
+    }
+
+    .wm-eagle-watermark svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .wm-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .5rem .8rem;
+      border: 1px solid var(--wm-border);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--wm-glass) 92%, transparent);
+      color: var(--wm-muted);
+      font-weight: 700;
+      backdrop-filter: blur(10px);
+    }
+
+    .wm-eyebrow strong {
+      color: var(--wm-green);
+    }
+
+    .wm-title {
+      color: var(--wm-navy);
+      font-size: clamp(2.6rem, 5.8vw, 5.9rem);
+      line-height: .96;
+      letter-spacing: -.078em;
+      text-wrap: balance;
+    }
+
+    .wm-lead {
+      color: var(--wm-muted);
+      font-size: 1.12rem;
+      max-width: 790px;
+    }
+
+    .wm-card {
+      background: color-mix(in srgb, var(--wm-surface) 94%, transparent);
+      border: 1px solid var(--wm-border);
+      border-radius: 1.35rem;
+      box-shadow: var(--wm-shadow);
+      color: var(--wm-text);
+    }
+
+    .wm-hero-panel {
+      background:
+        linear-gradient(180deg, color-mix(in srgb, var(--wm-surface) 95%, transparent), color-mix(in srgb, var(--wm-surface-soft) 94%, transparent));
+      border: 1px solid var(--wm-border);
+      border-radius: 1.35rem;
+      box-shadow: var(--wm-shadow);
+      backdrop-filter: blur(14px);
+      overflow: hidden;
+    }
+
+    .wm-status-head {
+      background:
+        linear-gradient(90deg, #111827, #1e3150 70%, color-mix(in srgb, var(--wm-red) 75%, #111827));
+      color: #fff;
+    }
+
+    [data-bs-theme="dark"] .wm-status-head {
+      background:
+        linear-gradient(90deg, #05070b, #101826 70%, #5c121a);
     }
 
     .wm-status-row {
@@ -256,15 +314,74 @@
     }
 
     .wm-legal-note {
-      background: color-mix(in srgb, var(--wm-gold-soft) 65%, var(--wm-surface));
+      background:
+        linear-gradient(90deg,
+          color-mix(in srgb, var(--wm-surface-soft) 82%, transparent),
+          color-mix(in srgb, var(--wm-gold-soft) 70%, transparent));
       border: 1px solid var(--wm-border);
       color: var(--wm-muted);
-      border-radius: .9rem;
-      font-size: .93rem;
+      border-radius: 1rem;
+      font-size: .94rem;
+    }
+
+    .wm-muted {
+      color: var(--wm-muted);
+    }
+
+    .wm-muted-2 {
+      color: var(--wm-muted-2);
+    }
+
+    .wm-section-title {
+      color: var(--wm-navy);
+      letter-spacing: -.055em;
+      line-height: 1.04;
+    }
+
+    .wm-tag {
+      display: inline-flex;
+      padding: .4rem .68rem;
+      border-radius: 999px;
+      background: var(--wm-gold-soft);
+      color: var(--wm-gold);
+      font-size: .82rem;
+      font-weight: 820;
+    }
+
+    .wm-tag-red {
+      background: color-mix(in srgb, var(--wm-red) 12%, var(--wm-surface));
+      color: var(--wm-red);
+    }
+
+    .wm-price {
+      color: var(--wm-navy-2);
+      font-size: 1.48rem;
+      font-weight: 850;
+      letter-spacing: -.04em;
+    }
+
+    .wm-polish-divider {
+      height: 10px;
+      background:
+        linear-gradient(90deg,
+          #fff 0 22%,
+          var(--wm-red) 22% 44%,
+          #fff 44% 66%,
+          var(--wm-red) 66% 100%);
+      border-block: 1px solid var(--wm-border);
+    }
+
+    [data-bs-theme="dark"] .wm-polish-divider {
+      background:
+        linear-gradient(90deg,
+          #e6e1d7 0 22%,
+          #8d1d27 22% 44%,
+          #e6e1d7 44% 66%,
+          #8d1d27 66% 100%);
     }
 
     .wm-doc-quote {
-      border-left: 4px solid var(--wm-gold);
+      border-left: 4px solid var(--wm-red);
       padding-left: 1rem;
       color: var(--wm-muted);
       font-size: 1.03rem;
@@ -285,9 +402,12 @@
     }
 
     .wm-table-row > div:first-child {
-      background: var(--wm-surface-soft);
+      background:
+        linear-gradient(90deg,
+          color-mix(in srgb, var(--wm-surface-soft) 85%, transparent),
+          color-mix(in srgb, var(--wm-red) 7%, var(--wm-surface-soft)));
       color: var(--wm-navy);
-      font-weight: 800;
+      font-weight: 820;
     }
 
     .wm-table-row > div:last-child {
@@ -295,20 +415,46 @@
     }
 
     .wm-step-number {
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       display: grid;
       place-items: center;
       border-radius: 50%;
-      background: #111827;
-      color: #fff;
-      font-weight: 850;
-      flex: 0 0 auto;
+      background:
+        linear-gradient(180deg, #fff 0 50%, var(--wm-red) 50% 100%);
+      color: #111827;
+      font-weight: 900;
+      border: 1px solid var(--wm-border);
     }
 
-    [data-bs-theme="dark"] .wm-step-number {
-      background: var(--wm-gold);
-      color: #111827;
+    .wm-aside {
+      background:
+        linear-gradient(160deg, #111827, #182a47 58%, #64141b);
+      color: #fff;
+      border-radius: 1.35rem;
+      box-shadow: var(--wm-shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .wm-aside::after {
+      content: "";
+      position: absolute;
+      inset: auto -8rem -7rem auto;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.18) 0 50%, rgba(220,20,60,.32) 50% 100%);
+      transform: rotate(-18deg);
+    }
+
+    .wm-aside p {
+      color: rgba(255,255,255,.82);
+    }
+
+    .wm-aside .small {
+      color: rgba(255,255,255,.66);
     }
 
     .form-control,
@@ -319,42 +465,28 @@
     }
 
     .form-control::placeholder {
-      color: color-mix(in srgb, var(--wm-muted) 75%, transparent);
+      color: color-mix(in srgb, var(--wm-muted) 74%, transparent);
       opacity: 1;
     }
 
     .form-control:focus,
     .form-select:focus {
-      border-color: var(--wm-gold);
-      box-shadow: 0 0 0 .25rem color-mix(in srgb, var(--wm-gold) 25%, transparent);
-    }
-
-    .wm-aside {
-      background: #111827;
-      color: #fff;
-      border-radius: 1.25rem;
-      box-shadow: var(--wm-shadow);
-    }
-
-    [data-bs-theme="dark"] .wm-aside {
-      background: #080a0f;
-      border: 1px solid var(--wm-border);
-    }
-
-    .wm-aside p {
-      color: rgba(255,255,255,.78);
-    }
-
-    .wm-aside .small {
-      color: rgba(255,255,255,.62);
+      border-color: var(--wm-red);
+      box-shadow: 0 0 0 .25rem color-mix(in srgb, var(--wm-red) 20%, transparent);
     }
 
     .wm-footer {
       color: var(--wm-muted);
       border-top: 1px solid var(--wm-border);
+      background: color-mix(in srgb, var(--wm-surface) 65%, transparent);
     }
 
     @media (max-width: 767.98px) {
+      .wm-hero {
+        min-height: auto;
+        padding-block: 4rem;
+      }
+
       .wm-status-row,
       .wm-table-row {
         grid-template-columns: 1fr;
@@ -364,19 +496,25 @@
         text-align: left;
         white-space: normal;
       }
+
+      .wm-patriotic-ribbon {
+        opacity: .34;
+        width: 120vw;
+        right: -40vw;
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="wm-topline py-2">
-    <div class="container d-flex flex-wrap justify-content-between gap-2">
+    <div class="container wm-topline-inner rounded-3 px-3 py-2 d-flex flex-wrap justify-content-between gap-2">
       <span>Centrum Usług Regulacyjnych i Delegowania Decyzyjnego</span>
-      <span>Obsługa podmiotów strategicznych, szczególnych oraz odpowiednio uzasadnionych</span>
+      <span>Rzeczpospolita proceduralna. Sprawy szczególne. Tryby uzasadnione.</span>
     </div>
   </div>
 
-  <nav class="navbar navbar-expand-lg py-4">
+  <nav class="navbar navbar-expand-lg sticky-top py-3">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-3" href="#">
         <span class="wm-logo-mark">WM</span>
@@ -384,7 +522,7 @@
       </a>
 
       <button
-        class="navbar-toggler wm-theme-toggle"
+        class="navbar-toggler wm-btn-outline"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#mainNav"
@@ -402,7 +540,7 @@
           <li class="nav-item"><a class="nav-link" href="#proces">Proces</a></li>
           <li class="nav-item"><a class="nav-link" href="#wniosek">Wniosek</a></li>
           <li class="nav-item ms-lg-2">
-            <button id="themeToggle" class="btn wm-btn-outline btn-sm" type="button">
+            <button id="themeToggle" class="btn wm-btn-outline btn-sm rounded-pill px-3" type="button">
               Tryb: jasny
             </button>
           </li>
@@ -412,7 +550,15 @@
   </nav>
 
   <header class="wm-hero">
-    <div class="container">
+    <div class="wm-patriotic-ribbon"></div>
+
+    <div class="wm-eagle-watermark" aria-hidden="true">
+      <svg viewBox="0 0 260 260" fill="currentColor" role="img">
+        <path d="M130 21c16 18 24 35 24 52 12-10 26-16 43-17-5 20-14 36-28 48 21-2 39 2 55 13-18 13-37 20-58 19 17 13 29 30 37 51-25-3-46-12-62-27v61h-22v-61c-16 15-37 24-62 27 8-21 20-38 37-51-21 1-40-6-58-19 16-11 34-15 55-13-14-12-23-28-28-48 17 1 31 7 43 17 0-17 8-34 24-52Zm0 58c-10 0-19 8-19 19s9 19 19 19 19-8 19-19-9-19-19-19Zm-38 148h76l-15 18h-46l-15-18Z"/>
+      </svg>
+    </div>
+
+    <div class="container py-5">
       <div class="row align-items-center g-5">
         <div class="col-lg-7">
           <div class="wm-eyebrow mb-3">
@@ -447,7 +593,7 @@
         </div>
 
         <div class="col-lg-5">
-          <aside class="wm-card overflow-hidden">
+          <aside class="wm-hero-panel">
             <div class="wm-status-head p-4">
               <h2 class="h5 mb-1">Panel dostępności decyzyjnej</h2>
               <p class="mb-0 opacity-75">Aktualizacja: po ostatnim posiedzeniu, przed pierwszym pytaniem.</p>
@@ -491,6 +637,8 @@
     </div>
   </header>
 
+  <div class="wm-polish-divider" aria-hidden="true"></div>
+
   <main class="pb-5">
     <section id="oferta" class="py-5">
       <div class="container">
@@ -516,7 +664,7 @@
                 Rekomendowany przy sprawach, które powstały nagle, ale wymagają historii
                 instytucjonalnej dłuższej niż ostatni weekend.
               </p>
-              <div class="wm-price">od 1 uzasadnienia ogólnego</div>
+              <div class="wm-price mb-2">od 1 uzasadnienia ogólnego</div>
               <ul class="wm-muted ps-3 mb-0">
                 <li>opracowanie narracji o wieloletnich pracach koncepcyjnych,</li>
                 <li>wskazanie potrzeby systemowej w języku możliwym do zacytowania,</li>
@@ -527,13 +675,13 @@
 
           <div class="col-md-6 col-xl-4">
             <article class="wm-card h-100 p-4">
-              <span class="wm-tag mb-3">pakiet pilny</span>
+              <span class="wm-tag wm-tag-red mb-3">pakiet pilny</span>
               <h3 class="h5 wm-section-title">Minister „Nie można było czekać”</h3>
               <p class="wm-muted">
                 Dla projektów wymagających natychmiastowego procedowania, szczególnie wtedy,
                 gdy spokojna analiza mogłaby ujawnić, że pośpiech jest jedynym argumentem.
               </p>
-              <div class="wm-price">tryb nocny + korekta</div>
+              <div class="wm-price mb-2">tryb nocny + korekta</div>
               <ul class="wm-muted ps-3 mb-0">
                 <li>uruchomienie ścieżki przyspieszonej bez zbędnej widoczności,</li>
                 <li>koordynacja wypowiedzi o odpowiedzialności państwa,</li>
@@ -547,10 +695,10 @@
               <span class="wm-tag mb-3">pakiet dotacyjny</span>
               <h3 class="h5 wm-section-title">Minister „To nie był luksus, tylko odporność”</h3>
               <p class="wm-muted">
-                Przeznaczony dla przedsięwzięć, które na poziomie faktury wyglądają jak zakup,
+                Dla przedsięwzięć, które na poziomie faktury wyglądają jak zakup,
                 ale na poziomie prezentacji stają się elementem odbudowy, innowacji lub transformacji.
               </p>
-              <div class="wm-price">grant + korekta opisu</div>
+              <div class="wm-price mb-2">grant + korekta opisu</div>
               <ul class="wm-muted ps-3 mb-0">
                 <li>przekład potrzeb konsumpcyjnych na język celów rozwojowych,</li>
                 <li>rubryka „wpływ społeczny” dla rzeczy, które głównie stoją, pływają albo błyszczą,</li>
@@ -567,7 +715,7 @@
                 Dla klientów, którzy muszą wykazać formalne przygotowanie do funkcji publicznej,
                 nadzorczej lub doradczej, ale nie chcą, aby edukacja przeszkadzała im w karierze.
               </p>
-              <div class="wm-price">dyplom, pieczęć, dyskrecja</div>
+              <div class="wm-price mb-2">dyplom, pieczęć, dyskrecja</div>
               <ul class="wm-muted ps-3 mb-0">
                 <li>narracja o podnoszeniu kwalifikacji w intensywnej aktywności zawodowej,</li>
                 <li>biogram, w którym daty zachowują się uprzejmie,</li>
@@ -578,13 +726,13 @@
 
           <div class="col-md-6 col-xl-4">
             <article class="wm-card h-100 p-4">
-              <span class="wm-tag mb-3">pakiet bezpieczeństwa</span>
+              <span class="wm-tag wm-tag-red mb-3">pakiet bezpieczeństwa</span>
               <h3 class="h5 wm-section-title">Minister „Nie możemy ujawnić szczegółów”</h3>
               <p class="wm-muted">
                 Najlepszy wybór dla działań, których nie da się przekonująco obronić jawnością,
                 ale można je tymczasowo przykryć słowami o bezpieczeństwie i wrażliwości operacyjnej.
               </p>
-              <div class="wm-price">tajemnica + trzy akapity</div>
+              <div class="wm-price mb-2">tajemnica + trzy akapity</div>
               <ul class="wm-muted ps-3 mb-0">
                 <li>klasyfikacja problemu jako zbyt delikatnego na prostą odpowiedź,</li>
                 <li>komunikacja z użyciem słów, które kończą rozmowę zamiast ją zaczynać,</li>
@@ -601,7 +749,7 @@
                 Dla zamówień, w których cena, dostawca i termin realizacji tworzą układ
                 wymagający ograniczonego dostępu do dokumentów źródłowych.
               </p>
-              <div class="wm-price">procedura nadzwyczajna</div>
+              <div class="wm-price mb-2">procedura nadzwyczajna</div>
               <ul class="wm-muted ps-3 mb-0">
                 <li>uzasadnienie zakupu w formule kryzysowej, nawet po ustaniu kryzysu,</li>
                 <li>przeniesienie akcentu z ceny na intencję,</li>
@@ -728,66 +876,6 @@
               <p class="wm-muted mb-0">
                 Po wdrożeniu zapewniamy pakiet odpowiedzi na pytania, które nie powinny paść,
                 oraz zestaw sformułowań pozwalających wyjaśnić, że sprawa jest złożona.
-              </p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-5">
-      <div class="container">
-        <div class="row g-3">
-          <div class="col-lg-6">
-            <article class="wm-card h-100 p-4">
-              <div class="wm-tag mb-3">komunikat branżowy</div>
-              <h3 class="h4 wm-section-title">
-                Rośnie popyt na ministrów średniego szczebla. Klienci cenią ich za niższą rozpoznawalność i wyższą dyspozycyjność.
-              </h3>
-              <p class="wm-muted mb-0">
-                Według niepublikowanego raportu Centrum, szczególnym zainteresowaniem cieszą się osoby,
-                które są wystarczająco ważne, aby podpisać dokument, ale niewystarczająco znane,
-                aby pojawiać się w memach przed końcem tygodnia.
-              </p>
-            </article>
-          </div>
-
-          <div class="col-lg-6">
-            <article class="wm-card h-100 p-4">
-              <div class="wm-tag mb-3">analiza rynku</div>
-              <h3 class="h4 wm-section-title">
-                Eksperci wskazują, że przejrzystość procesu pozostaje kluczowa, o ile nie utrudnia procesu.
-              </h3>
-              <p class="wm-muted mb-0">
-                W praktyce oznacza to model, w którym dokumenty są dostępne, lecz niekoniecznie odnajdywalne,
-                uzasadnienia obszerne, lecz niekoniecznie informacyjne, a odpowiedzialność obecna,
-                lecz rozproszona w sposób instytucjonalnie elegancki.
-              </p>
-            </article>
-          </div>
-
-          <div class="col-lg-6">
-            <article class="wm-card h-100 p-4">
-              <div class="wm-tag mb-3">standard obsługi</div>
-              <h3 class="h4 wm-section-title">
-                Nowy moduł „nie znam szczegółów” skraca czas reakcji kryzysowej o 47 procent.
-              </h3>
-              <p class="wm-muted mb-0">
-                Rozwiązanie pozwala osobom funkcyjnym utrzymać kontakt z mediami bez konieczności
-                utrzymywania kontaktu z treścią sprawy, co znacząco poprawia komfort wypowiedzi.
-              </p>
-            </article>
-          </div>
-
-          <div class="col-lg-6">
-            <article class="wm-card h-100 p-4">
-              <div class="wm-tag mb-3">compliance</div>
-              <h3 class="h4 wm-section-title">
-                Audyt wewnętrzny potwierdził, że nie wykryto nieprawidłowości w dokumentach, których nie przekazano audytowi.
-              </h3>
-              <p class="wm-muted mb-0">
-                Centrum podkreśla, że metodologia badania była spójna z zakresem dostępnego materiału,
-                a zakres dostępnego materiału był spójny z oczekiwaniem, aby wynik nie zaskoczył interesariuszy.
               </p>
             </article>
           </div>
